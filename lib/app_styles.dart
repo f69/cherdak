@@ -26,6 +26,9 @@ class AppStyles {
       TextStyle(fontSize: 14, height: 18 / 14, letterSpacing: 1);
 
   static final text2Bold = text2.copyWith(fontWeight: FontWeight.w700);
+
+  static const text3 =
+      TextStyle(fontSize: 12, height: 14 / 12, letterSpacing: 0);
 }
 
 extension TextStyleExt on String {
@@ -34,4 +37,5 @@ extension TextStyleExt on String {
   Text get h3 => Text(toUpperCase(), style: AppStyles.h3);
   Text get text2 => Text(this, style: AppStyles.text2);
   Text get text2Bold => Text(this, style: AppStyles.text2Bold);
+  Text get text3 => Text(this, style: AppStyles.text3);
 }

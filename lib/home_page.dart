@@ -1,18 +1,15 @@
-import 'package:cherdak/app_colors.dart';
-import 'package:cherdak/ext/app_ext.dart';
-import 'package:cherdak/ext/context_ext.dart';
-import 'package:cherdak/home_header.dart';
-import 'package:cherdak/main_menu.dart';
-import 'package:cherdak/pixel_wrapped.dart';
-import 'package:styled_widget/styled_widget.dart';
-
-import 'app_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:styled_widget/styled_widget.dart';
 
+import '/ext/app_ext.dart';
+import '/ext/context_ext.dart';
 import 'app.dart';
 import 'app_app_bar.dart';
+import 'home_header.dart';
+import 'main_menu.dart';
+import 'paintings_ribbon.dart';
 
 class HomePage extends HookConsumerWidget {
   const HomePage({super.key});
@@ -33,9 +30,14 @@ class HomePage extends HookConsumerWidget {
         width: context.screenSize.width,
         child: const MainMenu(),
       ),
-      body: [
-        const HomeHeader(),
-      ].toColumn().padding(top: 40),
+      body: ListView(
+        children: [
+          const HomeHeader().padding(vertical: 40),
+          const PaintingsRibbon(categoryId: 1),
+          const PaintingsRibbon(categoryId: 2),
+          const PaintingsRibbon(categoryId: 3),
+        ],
+      ),
     );
   }
 }

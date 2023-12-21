@@ -8,5 +8,6 @@
   "search": "search",
   "close": "close",
   "enter": "enter",
-  "register": "register"
+  "register": "register",
+  "paintingsFromCategory": "paintings from category"
 }
