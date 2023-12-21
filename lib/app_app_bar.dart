@@ -9,11 +9,13 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leading,
     this.title,
     this.actions,
+    this.centerTitle = true,
   });
 
   final Widget? leading;
   final Widget? title;
   final List<Widget>? actions;
+  final bool centerTitle;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: leading,
         title: title,
         actions: [...(actions ?? []), const SizedBox(width: 20)],
-        centerTitle: true,
+        centerTitle: centerTitle,
       ).padding(top: 4),
       const Divider(
         height: 1,
