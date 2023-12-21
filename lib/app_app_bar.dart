@@ -21,14 +21,14 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
       AppBar(
         leading: leading,
         title: title,
-        actions: [...(actions ?? []), const SizedBox(width: 16)],
+        actions: [...(actions ?? []), const SizedBox(width: 20)],
         centerTitle: true,
       ).padding(top: 4),
       const Divider(
         height: 1,
         color: AppColors.lightGrey,
-        indent: 16,
-        endIndent: 16,
+        indent: 20,
+        endIndent: 20,
       ).alignment(Alignment.bottomCenter),
     ].toStack();
   }

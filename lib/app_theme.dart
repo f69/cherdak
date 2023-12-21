@@ -13,7 +13,7 @@ class AppTheme {
       useMaterial3: false,
       brightness: Brightness.dark,
       scaffoldBackgroundColor: AppColors.background,
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         backgroundColor: AppColors.background,
         foregroundColor: AppColors.textWhite,
         titleTextStyle: AppStyles.text2Bold,
