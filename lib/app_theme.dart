@@ -12,13 +12,21 @@ class AppTheme {
     return ThemeData(
       useMaterial3: false,
       brightness: Brightness.dark,
+      fontFamily: kFontFamily,
       scaffoldBackgroundColor: AppColors.background,
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.background,
         foregroundColor: AppColors.textWhite,
         titleTextStyle: AppStyles.text2Bold,
       ),
-      fontFamily: kFontFamily,
+      dividerTheme: const DividerThemeData(
+        color: AppColors.lightGrey,
+        space: 1,
+      ),
+      iconTheme: const IconThemeData(
+        color: AppColors.iconGrey,
+        size: 24,
+      ),
     );
   }
 }

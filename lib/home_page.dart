@@ -31,11 +31,12 @@ class HomePage extends HookConsumerWidget {
         child: const MainMenu(),
       ),
       body: ListView(
+        padding: const EdgeInsets.only(bottom: 40),
         children: [
           const HomeHeader().padding(vertical: 40),
           const PaintingsRibbon(categoryId: 1),
-          const PaintingsRibbon(categoryId: 2),
-          const PaintingsRibbon(categoryId: 3),
+          // const PaintingsRibbon(categoryId: 2),
+          // const PaintingsRibbon(categoryId: 3),
         ],
       ),
     );

@@ -9,5 +9,6 @@
   "close": "закрыть",
   "enter": "вход",
   "register": "регистрация",
-  "paintingsFromCategory": "картины из категории"
+  "paintingsFromCategory": "картины из категории",
+  "worksCount": "{count} работ"
 }

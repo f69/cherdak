@@ -39,3 +39,7 @@ extension TextStyleExt on String {
   Text get text2Bold => Text(this, style: AppStyles.text2Bold);
   Text get text3 => Text(this, style: AppStyles.text3);
 }
+
+class AppSizes {
+  static const p20 = 20.0;
+}

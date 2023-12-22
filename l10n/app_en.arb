@@ -9,5 +9,11 @@
   "close": "close",
   "enter": "enter",
   "register": "register",
-  "paintingsFromCategory": "paintings from category"
+  "paintingsFromCategory": "paintings from category",
+  "worksCount": "{count} works",
+  "@worksCount": {
+    "placeholders": {
+      "count": {}
+    }
+  }
 }
