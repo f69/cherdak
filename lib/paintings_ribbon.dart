@@ -6,13 +6,29 @@ import 'package:styled_widget/styled_widget.dart';
 import '/app_styles.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
+import '/model/works_request.dart';
 import '/service/works_provider.dart';
 import 'app_colors.dart';
 import 'work_card.dart';
 
-class PaintingsRibbon extends HookConsumerWidget {
+class PaintingsRibbon extends StatelessWidget {
   const PaintingsRibbon({super.key, required this.categoryId});
   final int categoryId;
+
+  @override
+  Widget build(BuildContext context) {
+    return ProviderScope(
+      overrides: [
+        worksRequestProvider
+            .overrideWithValue(WorksRequest(categoryId: categoryId))
+      ],
+      child: const _PaintingsRibbon(),
+    ).padding(bottom: 80);
+  }
+}
+
+class _PaintingsRibbon extends HookConsumerWidget {
+  const _PaintingsRibbon();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -49,10 +65,11 @@ class PaintingsRibbon extends HookConsumerWidget {
                   .width(cardWidth)
                   .padding(right: 8);
             },
-          ).height(cardHeight),
+          ),
         AsyncError(:final error) => Text('Error: $error'),
         _ => const CupertinoActivityIndicator().center(),
       }
+          .height(cardHeight),
     ].toColumnCrossStart();
   }
 }

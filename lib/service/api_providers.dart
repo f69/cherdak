@@ -5,7 +5,7 @@ import 'api_client.dart';
 
 part 'api_providers.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 Dio apiDio(ApiDioRef ref) {
   final dio = Dio();
   dio.interceptors.addAll([
@@ -21,7 +21,7 @@ Dio apiDio(ApiDioRef ref) {
   return dio;
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 ApiClient apiClient(ApiClientRef ref) {
   final apiDio = ref.watch(apiDioProvider);
   return ApiClient(apiDio);

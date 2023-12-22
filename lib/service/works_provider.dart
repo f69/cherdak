@@ -8,15 +8,24 @@ import 'api_providers.dart';
 import 'paged_data_provider.dart';
 
 class WorksProvider extends PagedDataProvider<WorksInfo> {
+  var _request = WorksRequest();
+
+  @override
+  void init() {
+    _request = ref.watch(worksRequestProvider);
+  }
+
   @override
   Future<WorksInfo> getPage(int pageNumber) async {
     final client = ref.watch(apiClientProvider);
-    final request = WorksRequest();
-    final result = await client.getWorks(pageNumber, request);
+    final result = await client.getWorks(pageNumber, _request);
     return result;
   }
 }
 
-final worksProvider =
-    AutoDisposeAsyncNotifierProvider<WorksProvider, WorksInfo>(
-        WorksProvider.new);
+final worksProvider = AsyncNotifierProvider<WorksProvider, WorksInfo>(
+  WorksProvider.new,
+  dependencies: [worksRequestProvider],
+);
+
+final worksRequestProvider = Provider((ref) => WorksRequest());
