@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '/app_colors.dart';
@@ -11,12 +12,20 @@ import '/ext/widget_list_ext.dart';
 import 'app.dart';
 import 'app_app_bar.dart';
 import 'menu_close_button.dart';
+import 'service/common_providers.dart';
 
-class MainMenu extends StatelessWidget {
+class MainMenu extends HookConsumerWidget {
   const MainMenu({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentLang = ref.watch(langProvider);
+
+    Widget langSwitch(String lang) => lang.h3
+        .textColor(lang == currentLang ? AppColors.beige : null)
+        .pressable(
+            onPressed: () => ref.read(langProvider.notifier).state = lang);
+
     return Scaffold(
       appBar: AppAppBar(
         title: appTitle.text2Bold.padding(left: 4),
@@ -46,11 +55,7 @@ class MainMenu extends StatelessWidget {
             .padding(top: 60, left: 20),
         const Spacer(),
         [
-          [
-            'en'.h3.pressable(onPressed: () {}),
-            '/'.h3,
-            'ru'.h3.pressable(onPressed: () {}),
-          ].toRowMainCenter(),
+          [langSwitch('en'), '/'.h3, langSwitch('ru')].toRowMainCenter(),
           [
             context.l10n.enter.h3.pressable(onPressed: () {}),
             '|'.h3.padding(horizontal: 4),
