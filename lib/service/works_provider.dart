@@ -1,31 +1,26 @@
 import 'dart:async';
 
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '/model/works_info.dart';
 import '/model/works_request.dart';
 import 'api_providers.dart';
-import 'paged_data_provider.dart';
 
-class WorksProvider extends PagedDataProvider<WorksInfo> {
-  var _request = WorksRequest();
+part 'works_provider.g.dart';
+
+@riverpod
+class Works extends _$Works {
+  late WorksRequest _request;
 
   @override
-  void init() {
-    _request = ref.watch(worksRequestProvider);
+  FutureOr<WorksInfo> build({WorksRequest? request}) async {
+    _request = request ?? const WorksRequest();
+    return await getPage(1);
   }
 
-  @override
   Future<WorksInfo> getPage(int pageNumber) async {
     final client = ref.watch(apiClientProvider);
     final result = await client.getWorks(pageNumber, _request);
     return result;
   }
 }
-
-final worksProvider = AsyncNotifierProvider<WorksProvider, WorksInfo>(
-  WorksProvider.new,
-  dependencies: [worksRequestProvider],
-);
-
-final worksRequestProvider = Provider((ref) => WorksRequest());

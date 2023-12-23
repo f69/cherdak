@@ -113,10 +113,4 @@ extension MediaQueryContext on BuildContext {
   EdgeInsets get padding => mediaQuery.padding;
 
   Brightness get platformBrightness => mediaQuery.platformBrightness;
-
-  double get fontScale => mediaQuery.textScaleFactor;
-
-  double get fontEnlarge => (mediaQuery.textScaleFactor - 1).clamp(0, 3);
-
-  Size get scaledScreenSize => mediaQuery.size / mediaQuery.textScaleFactor;
 }

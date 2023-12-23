@@ -30,15 +30,15 @@ class HomePage extends HookConsumerWidget {
         width: context.screenSize.width,
         child: const MainMenu(),
       ),
-      body: ListView(
-        // padding: const EdgeInsets.only(bottom: 40),
-        children: [
-          const HomeHeader().padding(vertical: 40),
-          const PaintingsRibbon(categoryId: 1),
-          const PaintingsRibbon(categoryId: 4),
-          const PaintingsRibbon(categoryId: 6),
-        ],
-      ),
+      body: [
+        const HomeHeader().padding(vertical: 40),
+        const PaintingsRibbon(categoryId: 1),
+        const PaintingsRibbon(categoryId: 4),
+        const PaintingsRibbon(categoryId: 6),
+      ]
+          .toColumn(separator: const SizedBox(height: 80))
+          .padding(bottom: 80)
+          .scrollable(),
     );
   }
 }

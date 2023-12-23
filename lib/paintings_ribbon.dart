@@ -11,28 +11,14 @@ import '/service/works_provider.dart';
 import 'app_colors.dart';
 import 'work_card.dart';
 
-class PaintingsRibbon extends StatelessWidget {
+class PaintingsRibbon extends HookConsumerWidget {
   const PaintingsRibbon({super.key, required this.categoryId});
   final int categoryId;
 
   @override
-  Widget build(BuildContext context) {
-    return ProviderScope(
-      overrides: [
-        worksRequestProvider
-            .overrideWithValue(WorksRequest(categoryId: categoryId))
-      ],
-      child: const _PaintingsRibbon(),
-    ).padding(bottom: 80);
-  }
-}
-
-class _PaintingsRibbon extends HookConsumerWidget {
-  const _PaintingsRibbon();
-
-  @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final worksInfoAsync = ref.watch(worksProvider);
+    final worksInfoAsync =
+        ref.watch(worksProvider(request: WorksRequest(categoryId: categoryId)));
 
     final categoryName =
         worksInfoAsync.value?.data.firstOrNull?.category.title ?? '';
