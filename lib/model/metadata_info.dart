@@ -30,6 +30,8 @@ class MetadataInfo {
     required this.path,
   });
 
+  bool get allPagesFetched => currentPage == lastPage;
+
   factory MetadataInfo.fromJson(Map<String, dynamic> json) =>
       _$MetadataInfoFromJson(json);
 

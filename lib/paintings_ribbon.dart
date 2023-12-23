@@ -17,8 +17,9 @@ class PaintingsRibbon extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final worksInfoAsync =
-        ref.watch(worksProvider(request: WorksRequest(categoryId: categoryId)));
+    final dataProvider =
+        worksProvider(request: WorksRequest(categoryId: categoryId));
+    final worksInfoAsync = ref.watch(dataProvider);
 
     final categoryName =
         worksInfoAsync.value?.data.firstOrNull?.category.title ?? '';
@@ -43,11 +44,23 @@ class PaintingsRibbon extends HookConsumerWidget {
       ].toColumnCrossStart().padding(horizontal: AppSizes.p20),
       switch (worksInfoAsync) {
         AsyncData(:final value) => ListView.builder(
+            // key: ValueKey(categoryId),
             padding: const EdgeInsets.symmetric(horizontal: AppSizes.p20),
             scrollDirection: Axis.horizontal,
-            itemCount: value.data.length,
+            itemCount: value.data.length + (value.allPagesFetched ? 0 : 1),
             itemBuilder: (context, index) {
-              return WorkCard(info: value.data[index])
+              if (index == value.data.length) {
+                Future(() => ref.read(dataProvider.notifier).getNextPage());
+                return const CupertinoActivityIndicator()
+                    .center()
+                    .width(cardWidth / 2);
+              }
+
+              return [
+                WorkCard(info: value.data[index]),
+                Text('${index + 1}').fittedBox()
+              ]
+                  .toStack(fit: StackFit.expand)
                   .width(cardWidth)
                   .padding(right: 8);
             },
