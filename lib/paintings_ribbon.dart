@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
@@ -8,43 +7,35 @@ import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/works_request.dart';
 import '/service/works_provider.dart';
-import 'app_colors.dart';
+import 'model/works_info.dart';
 import 'work_card.dart';
 
-class PaintingsRibbon extends HookConsumerWidget {
-  const PaintingsRibbon({super.key, required this.categoryId});
-  final int categoryId;
+class WorksRibbon extends HookConsumerWidget {
+  const WorksRibbon({
+    super.key,
+    this.categoryId,
+    this.userId,
+    this.headerBuilder,
+  });
+
+  final int? categoryId;
+  final int? userId;
+  final ValueWidgetBuilder<WorksInfo?>? headerBuilder;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final dataProvider =
-        worksProvider(request: WorksRequest(categoryId: categoryId));
+    final request = WorksRequest(categoryId: categoryId, userId: userId);
+    final dataProvider = worksProvider(request: request);
     final worksInfoAsync = ref.watch(dataProvider);
 
-    final categoryName =
-        worksInfoAsync.value?.data.firstOrNull?.category.title ?? '';
-    final workCount = worksInfoAsync.value?.meta.totalItems;
-    final countText =
-        workCount == null ? '' : context.l10n.worksCount(workCount);
     final cardWidth = context.screenSize.width - 20 * 2;
     final cardHeight = cardWidth + 147;
 
     return [
-      [
-        context.l10n.paintingsFromCategory.h3,
-        [
-          categoryName.h3.padding(right: 8),
-          countText.text3.textColor(AppColors.beige),
-        ].toRow(
-          crossAxisAlignment: CrossAxisAlignment.baseline,
-          textBaseline: TextBaseline.alphabetic,
-        ),
-        const Divider(height: 1, color: AppColors.lightGrey)
-            .padding(top: 20, bottom: 32),
-      ].toColumnCrossStart().padding(horizontal: AppSizes.p20),
+      if (headerBuilder != null)
+        headerBuilder!.call(context, worksInfoAsync.valueOrNull, null),
       switch (worksInfoAsync) {
         AsyncData(:final value) => ListView.builder(
-            // key: ValueKey(categoryId),
             padding: const EdgeInsets.symmetric(horizontal: AppSizes.p20),
             scrollDirection: Axis.horizontal,
             itemCount: value.data.length + (value.allPagesFetched ? 0 : 1),
@@ -56,11 +47,7 @@ class PaintingsRibbon extends HookConsumerWidget {
                     .width(cardWidth / 2);
               }
 
-              return [
-                WorkCard(info: value.data[index]),
-                Text('${index + 1}').fittedBox()
-              ]
-                  .toStack(fit: StackFit.expand)
+              return WorkCard(info: value.data[index])
                   .width(cardWidth)
                   .padding(right: 8);
             },

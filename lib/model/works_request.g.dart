@@ -14,6 +14,7 @@ WorksRequest _$WorksRequestFromJson(Map<String, dynamic> json) => WorksRequest(
       sortType: json['sort_type'] as int? ?? 2,
       onlyPurchase: json['only_purchase'] as bool? ?? false,
       onlySelected: json['only_selected'] as bool? ?? true,
+      userId: json['user_id'] as int?,
     );
 
 Map<String, dynamic> _$WorksRequestToJson(WorksRequest instance) =>
@@ -25,4 +26,5 @@ Map<String, dynamic> _$WorksRequestToJson(WorksRequest instance) =>
       'sort_type': instance.sortType,
       'only_purchase': instance.onlyPurchase,
       'only_selected': instance.onlySelected,
+      'user_id': instance.userId,
     };

@@ -21,6 +21,7 @@ class AppTheme {
       ),
       dividerTheme: const DividerThemeData(
         color: AppColors.lightGrey,
+        thickness: 1,
         space: 1,
       ),
       iconTheme: const IconThemeData(

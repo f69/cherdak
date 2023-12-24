@@ -13,6 +13,7 @@ class WorksRequest extends Equatable {
     this.sortType = 2,
     this.onlyPurchase = false,
     this.onlySelected = true,
+    this.userId,
   });
 
   final int? categoryId;
@@ -22,6 +23,7 @@ class WorksRequest extends Equatable {
   final int sortType;
   final bool onlyPurchase;
   final bool onlySelected;
+  final int? userId;
 
   factory WorksRequest.fromJson(Map<String, dynamic> json) =>
       _$WorksRequestFromJson(json);
@@ -36,6 +38,7 @@ class WorksRequest extends Equatable {
         genres,
         sortType,
         onlyPurchase,
-        onlySelected
+        onlySelected,
+        userId,
       ];
 }

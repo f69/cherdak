@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../model/paged_data_info.dart';
 import '/model/works_info.dart';
 import '/model/works_request.dart';
 import 'api_providers.dart';
@@ -48,5 +49,26 @@ class Works extends _$Works {
       meta: page.meta,
     ));
     return page;
+  }
+}
+
+mixin PagedFetcher<T extends PagedDataInfo> {
+  Completer<T>? _completer;
+
+  Future<T> fetchPage(int pageNumber);
+
+  Future<T> getPage(int pageNumber) async {
+    var completer = _completer;
+    if (completer != null && !completer.isCompleted) {
+      return completer.future;
+    }
+
+    completer = Completer<T>();
+    _completer = completer;
+
+    final result = await fetchPage(pageNumber);
+
+    completer.complete(result);
+    return completer.future;
   }
 }

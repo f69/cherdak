@@ -10,5 +10,16 @@
   "enter": "вход",
   "register": "регистрация",
   "paintingsFromCategory": "картины из категории",
-  "worksCount": "{count} работ"
+  "worksCount": "{count} работ",
+  "askPrice": "Узнать стоимость",
+  "writeAuthor": "Написать автору",
+  "workParams": "Характеристики работы:",
+  "workDescription": "Описание работы:",
+  "status": "Статус",
+  "date": "Дата",
+  "category": "Категория",
+  "genre": "Жанр",
+  "technique": "Техника",
+  "place": "Место нахождения",
+  "authorOtherWorks": "Другие работы автора"
 }

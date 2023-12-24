@@ -1,11 +1,11 @@
 import 'dart:ui';
 
-import 'package:cherdak/service/common_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '/service/common_providers.dart';
 import 'app_theme.dart';
 import 'home_page.dart';
 

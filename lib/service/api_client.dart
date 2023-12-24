@@ -3,6 +3,7 @@ import 'package:retrofit/retrofit.dart';
 
 import '/app_const.dart';
 import '/model/stats_info.dart';
+import '/model/work_info.dart';
 import '/model/works_info.dart';
 import '/model/works_request.dart';
 
@@ -18,4 +19,7 @@ abstract class ApiClient {
   @POST('works')
   Future<WorksInfo> getWorks(
       @Query('page') int page, @Body() WorksRequest request);
+
+  @GET('work/{slug}')
+  Future<WorkInfoResponse> getWork(@Path('slug') String slug);
 }

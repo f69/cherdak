@@ -1,4 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cherdak/ext/app_ext.dart';
+import 'package:cherdak/ext/context_ext.dart';
+import 'package:cherdak/work_page.dart';
+import 'package:cherdak/work_stats_row.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
@@ -14,17 +18,15 @@ class WorkCard extends StatelessWidget {
   const WorkCard({super.key, required this.info});
   final WorksItem info;
 
-  Widget _statItem(IconData icon, int value) {
-    return [Icon(icon).padding(right: 4), '$value'.text2Bold]
-        .toRowMin()
-        .center()
-        .expanded();
-  }
-
   @override
   Widget build(BuildContext context) {
     final work = info.work;
     final user = info.user;
+
+    void showWorkPage() {
+      context.pushMaterial((_) => WorkPage(info: info));
+    }
+
     return [
       CachedNetworkImage(
         imageUrl: '$worksThumbBase/${work.mainImage}',
@@ -44,13 +46,12 @@ class WorkCard extends StatelessWidget {
           .textStyle(maxLines: 1, overflow: TextOverflow.ellipsis),
       Container().flexible(),
       const Divider(),
-      [
-        _statItem(CupertinoIcons.heart_fill, work.likesCount),
-        _statItem(CupertinoIcons.eye_solid, work.likesCount),
-        _statItem(CupertinoIcons.bubble_left_fill, work.likesCount),
-      ].toRow(separator: const VerticalDivider()).height(44),
-    ].toColumnCrossStart().decorated(
-        position: DecorationPosition.foreground,
-        border: Border.all(color: AppColors.lightGrey));
+      WorkStatsRow(info: work),
+    ]
+        .toColumnCrossStart()
+        .decorated(
+            position: DecorationPosition.foreground,
+            border: Border.all(color: AppColors.lightGrey))
+        .pressable(onPressed: showWorkPage);
   }
 }

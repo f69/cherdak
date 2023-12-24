@@ -10,7 +10,7 @@ import '/ext/context_ext.dart';
 import '/ext/widget_ext.dart';
 import '/ext/widget_list_ext.dart';
 import 'app.dart';
-import 'app_app_bar.dart';
+import 'base_app_bar.dart';
 import 'menu_close_button.dart';
 import 'service/common_providers.dart';
 
@@ -27,7 +27,7 @@ class MainMenu extends HookConsumerWidget {
             onPressed: () => ref.read(langProvider.notifier).state = lang);
 
     return Scaffold(
-      appBar: AppAppBar(
+      appBar: BaseAppBar(
         title: appTitle.text2Bold.padding(left: 4),
         actions: [MenuCloseButton(onPressed: context.scaffold.closeDrawer)],
         centerTitle: false,

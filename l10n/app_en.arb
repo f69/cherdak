@@ -15,5 +15,16 @@
     "placeholders": {
       "count": {}
     }
-  }
+  },
+  "askPrice": "Ask price",
+  "writeAuthor": "Write author",
+  "workParams": "Work characteristics:",
+  "workDescription": "Work description:",
+  "status": "Status",
+  "date": "Date",
+  "category": "Category",
+  "genre": "Genre",
+  "technique": "Technique",
+  "place": "Place",
+  "authorOtherWorks": "Author other works"
 }

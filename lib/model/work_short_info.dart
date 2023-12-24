@@ -4,14 +4,6 @@ part 'work_short_info.g.dart';
 
 @JsonSerializable()
 class WorkShortInfo {
-  final int id;
-  final String title;
-  final String slug;
-  final bool forSale;
-  final String createdAt;
-  final String mainImage;
-  final int likesCount;
-
   WorkShortInfo({
     required this.id,
     required this.title,
@@ -21,6 +13,14 @@ class WorkShortInfo {
     required this.mainImage,
     required this.likesCount,
   });
+
+  final int id;
+  final String title;
+  final String slug;
+  final bool forSale;
+  final String createdAt;
+  final String mainImage;
+  final int likesCount;
 
   factory WorkShortInfo.fromJson(Map<String, dynamic> json) =>
       _$WorkShortInfoFromJson(json);

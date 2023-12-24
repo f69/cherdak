@@ -168,4 +168,28 @@ extension StyledList<E> on List<Widget> {
             ? (expand((child) => [child, separator]).toList()..removeLast())
             : this,
       );
+
+  // shortcut for row, which defaults to baseline alignment on CROSS axis
+  Widget toRowBaseline({
+    Key? key,
+    MainAxisAlignment mainAxisAlignment = MainAxisAlignment.start,
+    MainAxisSize mainAxisSize = MainAxisSize.max,
+    CrossAxisAlignment crossAxisAlignment = CrossAxisAlignment.baseline,
+    TextDirection? textDirection,
+    VerticalDirection verticalDirection = VerticalDirection.down,
+    TextBaseline? textBaseline = TextBaseline.alphabetic,
+    Widget? separator,
+  }) =>
+      Row(
+        key: key,
+        mainAxisAlignment: mainAxisAlignment,
+        mainAxisSize: mainAxisSize,
+        crossAxisAlignment: crossAxisAlignment,
+        textDirection: textDirection,
+        verticalDirection: verticalDirection,
+        textBaseline: textBaseline,
+        children: separator != null && length > 0
+            ? (expand((child) => [child, separator]).toList()..removeLast())
+            : this,
+      );
 }

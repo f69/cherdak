@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
+import 'app.dart';
 import 'app_colors.dart';
 
-class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const AppAppBar({
+class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const BaseAppBar({
     super.key,
     this.leading,
     this.title,
@@ -22,7 +23,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
     return [
       AppBar(
         leading: leading,
-        title: title,
+        title: title ?? const Text(appTitle),
         actions: [...(actions ?? []), const SizedBox(width: 20)],
         centerTitle: centerTitle,
       ).padding(top: 4),
