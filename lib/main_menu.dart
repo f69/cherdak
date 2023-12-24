@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
@@ -19,12 +18,30 @@ class MainMenu extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final menuIndex = ref.watch(mainMenuProvider);
     final currentLang = ref.watch(langProvider);
 
+    final menuItems = [
+      context.l10n.main,
+      context.l10n.gallery,
+      context.l10n.services,
+      context.l10n.authors,
+      context.l10n.about,
+      // context.l10n.blog,
+    ];
     Widget langSwitch(String lang) => lang.h3
         .textColor(lang == currentLang ? AppColors.beige : null)
         .pressable(
             onPressed: () => ref.read(langProvider.notifier).state = lang);
+
+    Widget menuItem(String caption, int index) {
+      return caption.h1
+          .textColor(index == menuIndex ? AppColors.textWhite : null)
+          .pressable(onPressed: () {
+        ref.read(mainMenuProvider.notifier).state = index;
+        context.scaffold.closeDrawer();
+      });
+    }
 
     return Scaffold(
       appBar: BaseAppBar(
@@ -33,23 +50,17 @@ class MainMenu extends HookConsumerWidget {
         centerTitle: false,
       ),
       body: [
-        [
-          context.l10n.gallery.h1
-              .textColor(AppColors.textWhite)
-              .pressable(onPressed: () {}),
-          context.l10n.services.h1.pressable(onPressed: () {}),
-          context.l10n.authors.h1.pressable(onPressed: () {}),
-          context.l10n.about.h1.pressable(onPressed: () {}),
-          context.l10n.blog.h1.pressable(onPressed: () {}),
-          [
-            const Icon(
-              CupertinoIcons.search,
-              color: AppColors.inactiveGrey,
-              size: 36,
-            ).padding(right: 8),
-            context.l10n.search.h1
-          ].toRow().pressable(onPressed: () {}),
-        ]
+        // [
+        //   const Icon(
+        //     CupertinoIcons.search,
+        //     color: AppColors.inactiveGrey,
+        //     size: 36,
+        //   ).padding(right: 8),
+        //   context.l10n.search.h1
+        // ].toRow().pressable(onPressed: () {}),
+        menuItems
+            .map((e) => menuItem(e, menuItems.indexOf(e)))
+            .toList()
             .toColumnCrossStart(separator: const SizedBox(height: 12))
             .textStyle(style: const TextStyle(color: AppColors.inactiveGrey))
             .padding(top: 60, left: 20),
