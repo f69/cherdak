@@ -12,6 +12,10 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  easy_image_viewer:
+    git:
+      url: https://github.com/f69/easy_image_viewer.git
+      ref: 7bf7497b
   cupertino_icons: ^1.0.2
   styled_widget: ^0.4.1
   hooks_riverpod: ^2.4.9

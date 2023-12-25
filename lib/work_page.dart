@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cherdak/user_works_ribbon.dart';
+import 'package:easy_image_viewer/easy_image_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
@@ -10,6 +10,7 @@ import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/service/work_provider.dart';
+import '/user_works_ribbon.dart';
 import '/work_stats_row.dart';
 import 'app_button.dart';
 import 'app_const.dart';
@@ -24,13 +25,22 @@ class WorkPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final workInfo = ref.watch(workProvider(info.work.slug)).valueOrNull;
-    print(info.user.shortDescription);
+    final imageUrl = '$worksThumbBase/${info.work.mainImage}';
 
     Widget paramItem(String caption, String? value) {
       return [
         '$caption:'.text2.textColor(AppColors.inactiveGrey),
         (value ?? '—').text2SemiBold,
       ].toColumnCrossStart();
+    }
+
+    void showWork() {
+      showImageViewer(
+        context,
+        CachedNetworkImageProvider(imageUrl),
+        doubleTapZoomable: true,
+        swipeDismissible: true,
+      );
     }
 
     return Scaffold(
@@ -45,9 +55,9 @@ class WorkPage extends HookConsumerWidget {
               .border(all: 1, color: AppColors.lightGrey),
           const Divider().padding(top: 20, bottom: 16),
           CachedNetworkImage(
-            imageUrl: '$worksThumbBase/${info.work.mainImage}',
-            fit: BoxFit.cover,
-          ).aspectRatio(aspectRatio: 1),
+            imageUrl: imageUrl,
+            fit: BoxFit.contain,
+          ).aspectRatio(aspectRatio: 1).gestures(onTap: showWork),
           [
             AppButton(onPressed: () {}, child: Text(context.l10n.askPrice))
                 .expanded(),
