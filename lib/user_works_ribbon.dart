@@ -5,7 +5,7 @@ import '/app_styles.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
 import 'app_colors.dart';
-import 'paintings_ribbon.dart';
+import 'works_ribbon.dart';
 
 class UserWorksRibbon extends StatelessWidget {
   const UserWorksRibbon({

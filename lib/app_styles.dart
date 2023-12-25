@@ -1,13 +1,29 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
 
 class AppStyles {
+  static const ultra = TextStyle(
+      fontSize: 40,
+      height: 48 / 40,
+      fontVariations: [FontVariation.weight(800)],
+      letterSpacing: 0);
+
+  static final ultraOutlined = ultra.copyWith(
+    letterSpacing: -1,
+    foreground: Paint()
+      ..color = AppColors.beige
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.0,
+  );
+
   static const h1 = TextStyle(
       fontSize: 36,
       height: 44 / 36,
-      fontWeight: FontWeight.w600,
-      letterSpacing: 2);
+      fontVariations: [FontVariation.weight(600)],
+      letterSpacing: 0);
 
   static final h1Outlined = h1.copyWith(
     foreground: Paint()
@@ -40,6 +56,8 @@ class AppStyles {
 }
 
 extension TextStyleExt on String {
+  Text get ultra => Text(toUpperCase(), style: AppStyles.ultra);
+  Text get ultraOutlined => Text(toUpperCase(), style: AppStyles.ultraOutlined);
   Text get h1 => Text(toUpperCase(), style: AppStyles.h1);
   Text get h1Outlined => Text(toUpperCase(), style: AppStyles.h1Outlined);
   Text get h3 => Text(toUpperCase(), style: AppStyles.h3);

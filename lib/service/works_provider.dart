@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../model/paged_data_info.dart';
@@ -31,6 +32,7 @@ class Works extends _$Works {
 
     final client = ref.watch(apiClientProvider);
     final result = await client.getWorks(pageNumber, _request);
+    // await Future.delayed(const Duration(seconds: 2));
 
     completer.complete(result);
     return completer.future;
@@ -51,6 +53,16 @@ class Works extends _$Works {
     return page;
   }
 }
+
+final worksFilterProvider = StateProvider((ref) => const WorksRequest());
+
+// @riverpod
+// Future<WorksInfo> galleryWorks(GalleryWorksRef ref) async {
+//   final filter = ref.watch(worksFilterProvider);
+//   // final worksAsync = ref.watch(worksProvider(request: filter));
+//   // return worksAsync.value!;
+//   return ref.watch(worksProvider(request: filter).future);
+// }
 
 mixin PagedFetcher<T extends PagedDataInfo> {
   Completer<T>? _completer;

@@ -1,3 +1,6 @@
+import 'package:cherdak/authors_page.dart';
+import 'package:cherdak/gallery_page.dart';
+import 'package:cherdak/services_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -33,6 +36,9 @@ class HomePage extends HookConsumerWidget {
       ),
       body: switch (menuIndex) {
         0 => const MainPage(),
+        1 => const GalleryPage(),
+        2 => const ServicesPage(),
+        3 => const AuthorsPage(),
         _ => const SizedBox.shrink(),
       },
     );

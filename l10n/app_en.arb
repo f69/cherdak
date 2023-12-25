@@ -27,5 +27,7 @@
   "genre": "Genre",
   "technique": "Technique",
   "place": "Place",
-  "authorOtherWorks": "Author other works"
+  "authorOtherWorks": "Author other works",
+  "artGalleryIntro": "Просмотривайте тысячи оригинальных работ от художников и мастеров со всего мира и покупайте произведения, которые будут вдохновлять вас каждый день!",
+  "found": "Found"
 }
