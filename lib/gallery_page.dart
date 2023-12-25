@@ -7,6 +7,7 @@ import '/app_styles.dart';
 import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
 import '/ext/widget_list_ext.dart';
+import '/filter_panel.dart';
 import '/service/works_provider.dart';
 import '/work_card.dart';
 import 'model/works_info.dart';
@@ -36,50 +37,40 @@ class GalleryPage extends HookConsumerWidget {
             Future(() => ref.read(dataProvider.notifier).getNextPage());
             return activityIndicator().height(cardHeight / 2);
           }
-
           return WorkCard(info: value.data[index])
               .height(cardHeight)
               .padding(bottom: 32);
         };
 
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: [
-            ['art'.ultraOutlined, 8.gap, 'gallery'.ultra].toRow(),
-            context.l10n.artGalleryIntro.text2Bold.padding(top: 14),
-          ].toColumn().padding(vertical: 40),
-        ),
-        ...switch (worksInfoAsync) {
-          AsyncData(:final value) => [
-              SliverToBoxAdapter(child: listHeader(value.meta.totalItems)),
-              SliverList(
-                delegate: SliverChildBuilderDelegate(
-                  itemBuilder(value),
-                  // (context, index) {
-                  //   if (index == value.data.length) {
-                  //     Future(
-                  //         () => ref.read(dataProvider.notifier).getNextPage());
-                  //     return const CupertinoActivityIndicator()
-                  //         .center()
-                  //         .height(cardHeight / 2);
-                  //   }
-                  //
-                  //   return WorkCard(info: value.data[index])
-                  //       .height(cardHeight)
-                  //       .padding(bottom: 32);
-                  // },
-                  childCount:
-                      value.data.length + (value.allPagesFetched ? 0 : 1),
+    return [
+      CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: [
+              ['art'.ultraOutlined, 8.gap, 'gallery'.ultra].toRow(),
+              context.l10n.artGalleryIntro.text2Bold.padding(top: 14),
+            ].toColumn().padding(vertical: 40),
+          ),
+          ...switch (worksInfoAsync) {
+            AsyncData(:final value) => [
+                SliverToBoxAdapter(child: listHeader(value.meta.totalItems)),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    itemBuilder(value),
+                    childCount:
+                        value.data.length + (value.allPagesFetched ? 0 : 1),
+                  ),
                 ),
-              ),
-            ],
-          AsyncError(:final error) => [
-              SliverFillRemaining(child: Text('Error: $error'))
-            ],
-          _ => [SliverFillRemaining(child: activityIndicator())],
-        },
-      ],
-    ).padding(horizontal: AppSizes.p20);
+                SliverToBoxAdapter(child: 80.gap),
+              ],
+            AsyncError(:final error) => [
+                SliverFillRemaining(child: Text('Error: $error'))
+              ],
+            _ => [SliverFillRemaining(child: activityIndicator())],
+          },
+        ],
+      ).padding(horizontal: AppSizes.p20),
+      const FilterPanel().alignment(Alignment.bottomCenter).safeArea(),
+    ].toStack();
   }
 }

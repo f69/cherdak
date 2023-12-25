@@ -1,16 +1,15 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cherdak/ext/app_ext.dart';
-import 'package:cherdak/ext/context_ext.dart';
-import 'package:cherdak/work_page.dart';
-import 'package:cherdak/work_stats_row.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '/app_const.dart';
+import '/ext/app_ext.dart';
+import '/ext/context_ext.dart';
 import '/ext/widget_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/works_item.dart';
+import '/work_page.dart';
+import '/work_stats_row.dart';
 import 'app_colors.dart';
 import 'app_styles.dart';
 
@@ -30,7 +29,8 @@ class WorkCard extends StatelessWidget {
     return [
       CachedNetworkImage(
         imageUrl: '$worksThumbBase/${work.mainImage}',
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
+        alignment: Alignment.center,
       ).aspectRatio(aspectRatio: 1),
       [
         work.title.text2Bold,

@@ -11,12 +11,14 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title,
     this.actions,
     this.centerTitle = true,
+    this.automaticallyImplyLeading = false,
   });
 
   final Widget? leading;
   final Widget? title;
   final List<Widget>? actions;
   final bool centerTitle;
+  final bool automaticallyImplyLeading;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
         title: title ?? const Text(appTitle),
         actions: [...(actions ?? []), const SizedBox(width: 20)],
         centerTitle: centerTitle,
+        automaticallyImplyLeading: automaticallyImplyLeading,
       ).padding(top: 4),
       const Divider(
         height: 1,

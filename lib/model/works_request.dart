@@ -7,12 +7,12 @@ part 'works_request.g.dart';
 class WorksRequest extends Equatable {
   const WorksRequest({
     this.categoryId,
-    this.genreId = 0,
-    this.countryId = 0,
+    this.genreId,
+    this.countryId,
     this.genres = const [],
     this.sortType = 2,
     this.onlyPurchase = false,
-    this.onlySelected = true,
+    this.onlySelected = false,
     this.userId,
   });
 

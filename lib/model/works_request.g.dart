@@ -8,12 +8,12 @@ part of 'works_request.dart';
 
 WorksRequest _$WorksRequestFromJson(Map<String, dynamic> json) => WorksRequest(
       categoryId: json['category_id'] as int?,
-      genreId: json['genre_id'] as int? ?? 0,
-      countryId: json['country_id'] as int? ?? 0,
+      genreId: json['genre_id'] as int?,
+      countryId: json['country_id'] as int?,
       genres: json['genres'] as List<dynamic>? ?? const [],
       sortType: json['sort_type'] as int? ?? 2,
       onlyPurchase: json['only_purchase'] as bool? ?? false,
-      onlySelected: json['only_selected'] as bool? ?? true,
+      onlySelected: json['only_selected'] as bool? ?? false,
       userId: json['user_id'] as int?,
     );
 

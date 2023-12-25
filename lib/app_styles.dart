@@ -39,7 +39,7 @@ class AppStyles {
       letterSpacing: 1);
 
   static const text1 =
-      TextStyle(fontSize: 16, height: 24 / 16, letterSpacing: 1);
+      TextStyle(fontSize: 16, height: 24 / 16, letterSpacing: 0);
 
   static final text1SemiBold = text1.copyWith(fontWeight: FontWeight.w600);
 

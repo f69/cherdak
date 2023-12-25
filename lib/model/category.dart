@@ -5,12 +5,12 @@ part 'category.g.dart';
 @JsonSerializable()
 class Category {
   final String title;
-  final String titleEn;
+  final String? titleEn;
   final String slug;
 
   Category({
     required this.title,
-    required this.titleEn,
+    this.titleEn,
     required this.slug,
   });
 
