@@ -26,7 +26,9 @@ class AppButton extends StatelessWidget {
         .decorated(
             border: filled ? null : Border.all(color: AppColors.lightGrey),
             color: filled ? AppColors.lightGrey : null)
-        .pressable(onPressed: onPressed)
+        .pressable(
+            onPressed: onPressed,
+            pressedBackgroundColor: AppColors.inactiveGrey.withOpacity(0.5))
         .height(height ?? 48)
         .textStyle(
           style: AppStyles.text3Bold.copyWith(
