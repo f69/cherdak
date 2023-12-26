@@ -15,6 +15,7 @@ import '/ext/num_ext.dart';
 import '/model/works_request.dart';
 import '/service/data_providers.dart';
 import '/service/works_provider.dart';
+import 'filter_value_page.dart';
 
 class FilterPage extends HookConsumerWidget {
   const FilterPage({super.key});
@@ -137,42 +138,6 @@ class FilterPage extends HookConsumerWidget {
           .toColumn()
           .padding(horizontal: AppSizes.p20, top: 40, bottom: 8)
           .safeArea(top: false),
-    );
-  }
-}
-
-class FilterValuePage extends StatelessWidget {
-  const FilterValuePage({
-    super.key,
-    required this.caption,
-    required this.values,
-    required this.selectedValue,
-  });
-  final String caption;
-  final List<String> values;
-  final String? selectedValue;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: BaseAppBar(
-        title: caption.text2Bold,
-        leading: const Icon(Icons.arrow_back).pressable(onPressed: context.pop),
-      ),
-      body: ListView.builder(
-        padding:
-            const EdgeInsets.symmetric(horizontal: AppSizes.p20, vertical: 16),
-        itemCount: values.length,
-        itemBuilder: (context, index) {
-          final value = values[index];
-          final color = value == selectedValue ? null : AppColors.inactiveGrey;
-
-          return value.text1SemiBold
-              .textColor(color)
-              .padding(vertical: 8)
-              .pressable(onPressed: () => context.pop(value));
-        },
-      ),
     );
   }
 }
