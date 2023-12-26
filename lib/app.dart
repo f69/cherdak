@@ -5,13 +5,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '/app/app_const.dart';
+import '/app/app_theme.dart';
+import '/pages/home_page.dart';
 import '/service/common_providers.dart';
-import 'app_theme.dart';
-import 'home_page.dart';
-
-const appTitle = 'Cherdak Dalí';
-
-const supportedLanguages = ['en', 'ru'];
 
 class App extends HookConsumerWidget {
   const App({super.key});

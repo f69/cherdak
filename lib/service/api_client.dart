@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '/app_const.dart';
+import '/app/app_const.dart';
 import '/model/country_info.dart';
 import '/model/genre_info.dart';
 import '/model/stats_info.dart';

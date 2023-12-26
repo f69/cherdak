@@ -2,16 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import '/app_const.dart';
+import '/app/app_colors.dart';
+import '/app/app_const.dart';
+import '/app/app_styles.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/works_item.dart';
-import '/work_page.dart';
-import '/work_stats_row.dart';
-import 'app_colors.dart';
-import 'app_styles.dart';
+import '/pages/work_page.dart';
+import 'work_stats_row.dart';
 
 class WorkCard extends StatelessWidget {
   const WorkCard({super.key, required this.info});

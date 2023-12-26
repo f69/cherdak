@@ -1,15 +1,15 @@
-import 'package:cherdak/authors_page.dart';
-import 'package:cherdak/gallery_page.dart';
-import 'package:cherdak/services_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '/components/base_app_bar.dart';
+import '/components/main_menu.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
+import '/pages/authors_page.dart';
+import '/pages/gallery_page.dart';
+import '/pages/services_page.dart';
 import '/service/common_providers.dart';
-import 'base_app_bar.dart';
-import 'main_menu.dart';
 import 'main_page.dart';
 
 class HomePage extends HookConsumerWidget {

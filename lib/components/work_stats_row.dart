@@ -1,9 +1,10 @@
-import '/app_styles.dart';
-import '/ext/widget_list_ext.dart';
-import '/model/work_short_info.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
+
+import '/app/app_styles.dart';
+import '/ext/widget_list_ext.dart';
+import '/model/work_short_info.dart';
 
 class WorkStatsRow extends StatelessWidget {
   const WorkStatsRow({super.key, required this.info});

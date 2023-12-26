@@ -4,19 +4,19 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import '/app_colors.dart';
-import '/app_styles.dart';
+import '/app/app_colors.dart';
+import '/app/app_const.dart';
+import '/app/app_styles.dart';
+import '/components/app_button.dart';
+import '/components/base_app_bar.dart';
+import '/components/user_works_ribbon.dart';
+import '/components/work_stats_row.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
+import '/model/works_item.dart';
 import '/service/work_provider.dart';
-import '/user_works_ribbon.dart';
-import '/work_stats_row.dart';
-import 'app_button.dart';
-import 'app_const.dart';
-import 'base_app_bar.dart';
-import 'model/works_item.dart';
-import 'simple_grid.dart';
+import '/widgets/simple_grid.dart';
 
 class WorkPage extends HookConsumerWidget {
   const WorkPage({super.key, required this.info});

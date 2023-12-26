@@ -1,10 +1,10 @@
-import 'package:cherdak/app_styles.dart';
-import 'package:cherdak/ext/app_ext.dart';
-import 'package:cherdak/ext/widget_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import 'app_colors.dart';
+import '/app/app_colors.dart';
+import '/app/app_styles.dart';
+import '/ext/app_ext.dart';
+import '/ext/widget_ext.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({

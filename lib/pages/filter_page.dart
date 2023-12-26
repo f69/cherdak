@@ -4,17 +4,17 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import '/app_button.dart';
-import '/app_const.dart';
-import '/app_styles.dart';
-import '/base_app_bar.dart';
+import '/app/app_colors.dart';
+import '/app/app_const.dart';
+import '/app/app_styles.dart';
+import '/components/app_button.dart';
+import '/components/base_app_bar.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
 import '/model/works_request.dart';
 import '/service/data_providers.dart';
 import '/service/works_provider.dart';
-import 'app_colors.dart';
 
 class FilterPage extends HookConsumerWidget {
   const FilterPage({super.key});

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import '/app_styles.dart';
+import '/app/app_colors.dart';
+import '/app/app_styles.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_ext.dart';
-import 'app_colors.dart';
-import 'filter_page.dart';
+import '/pages/filter_page.dart';
 
 class FilterPanel extends StatelessWidget {
   const FilterPanel({super.key});

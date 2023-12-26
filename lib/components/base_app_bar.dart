@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import 'app.dart';
-import 'app_colors.dart';
+import '/app/app_colors.dart';
+import '/app/app_const.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BaseAppBar({

@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import 'app_colors.dart';
-import 'pixel_wrapped.dart';
-import 'app_styles.dart';
+import '/app/app_colors.dart';
+import '/app/app_styles.dart';
+import '/widgets/pixel_wrapped.dart';
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({super.key});

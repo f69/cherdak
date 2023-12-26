@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import '/app_styles.dart';
+import '/app/app_styles.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
+import '/model/works_info.dart';
 import '/model/works_request.dart';
 import '/service/works_provider.dart';
-import 'model/works_info.dart';
 import 'work_card.dart';
 
 class WorksRibbon extends HookConsumerWidget {

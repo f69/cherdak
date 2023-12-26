@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '/pressable.dart';
+import '/widgets/pressable.dart';
 
 extension AppWidgetExt on Widget {
   Widget pressable({

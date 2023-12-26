@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import '/app_styles.dart';
+import '/app/app_colors.dart';
+import '/app/app_styles.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
-import 'app_colors.dart';
 import 'works_ribbon.dart';
 
 class UserWorksRibbon extends StatelessWidget {

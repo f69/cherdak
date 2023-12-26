@@ -1,7 +1,7 @@
-import 'app_styles.dart';
 import 'package:flutter/material.dart';
 
 import 'app_colors.dart';
+import 'app_styles.dart';
 
 const kFontFamily = 'OpenSans';
 

@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import '/app_styles.dart';
+import '/app/app_styles.dart';
+import '/components/filter_panel.dart';
+import '/components/work_card.dart';
 import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
 import '/ext/widget_list_ext.dart';
-import '/filter_panel.dart';
+import '/model/works_info.dart';
 import '/service/works_provider.dart';
-import '/work_card.dart';
-import 'model/works_info.dart';
 
 class GalleryPage extends HookConsumerWidget {
   const GalleryPage({super.key});
