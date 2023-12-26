@@ -1,12 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'works_request.dart';
+part of 'request_params.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-WorksRequest _$WorksRequestFromJson(Map<String, dynamic> json) => WorksRequest(
+RequestParams _$RequestParamsFromJson(Map<String, dynamic> json) =>
+    RequestParams(
       categoryId: json['category_id'] as int?,
       genreId: json['genre_id'] as int?,
       countryId: json['country_id'] as int?,
@@ -15,9 +16,10 @@ WorksRequest _$WorksRequestFromJson(Map<String, dynamic> json) => WorksRequest(
       onlyPurchase: json['only_purchase'] as bool? ?? false,
       onlySelected: json['only_selected'] as bool? ?? false,
       userId: json['user_id'] as int?,
+      searchString: json['search_string'] as String?,
     );
 
-Map<String, dynamic> _$WorksRequestToJson(WorksRequest instance) =>
+Map<String, dynamic> _$RequestParamsToJson(RequestParams instance) =>
     <String, dynamic>{
       'category_id': instance.categoryId,
       'genre_id': instance.genreId,
@@ -27,4 +29,5 @@ Map<String, dynamic> _$WorksRequestToJson(WorksRequest instance) =>
       'only_purchase': instance.onlyPurchase,
       'only_selected': instance.onlySelected,
       'user_id': instance.userId,
+      'search_string': instance.searchString,
     };

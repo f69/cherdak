@@ -6,7 +6,7 @@ import '/app/app_styles.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/works_info.dart';
-import '/model/works_request.dart';
+import '/model/request_params.dart';
 import '/service/works_provider.dart';
 import 'work_card.dart';
 
@@ -24,7 +24,7 @@ class WorksRibbon extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final request = WorksRequest(categoryId: categoryId, userId: userId);
+    final request = RequestParams(categoryId: categoryId, userId: userId);
     final dataProvider = worksProvider(request: request);
     final worksInfoAsync = ref.watch(dataProvider);
 

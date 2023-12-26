@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'works_request.g.dart';
+part 'request_params.g.dart';
 
 @JsonSerializable()
-class WorksRequest extends Equatable {
-  const WorksRequest({
+class RequestParams extends Equatable {
+  const RequestParams({
     this.categoryId,
     this.genreId,
     this.countryId,
@@ -14,6 +14,7 @@ class WorksRequest extends Equatable {
     this.onlyPurchase = false,
     this.onlySelected = false,
     this.userId,
+    this.searchString,
   });
 
   final int? categoryId;
@@ -24,11 +25,12 @@ class WorksRequest extends Equatable {
   final bool onlyPurchase;
   final bool onlySelected;
   final int? userId;
+  final String? searchString;
 
-  factory WorksRequest.fromJson(Map<String, dynamic> json) =>
-      _$WorksRequestFromJson(json);
+  factory RequestParams.fromJson(Map<String, dynamic> json) =>
+      _$RequestParamsFromJson(json);
 
-  Map<String, dynamic> toJson() => _$WorksRequestToJson(this);
+  Map<String, dynamic> toJson() => _$RequestParamsToJson(this);
 
   @override
   List<Object?> get props => [
@@ -40,5 +42,6 @@ class WorksRequest extends Equatable {
         onlyPurchase,
         onlySelected,
         userId,
+        searchString,
       ];
 }

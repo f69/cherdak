@@ -5,19 +5,19 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '/model/paged_data_info.dart';
 import '/model/works_info.dart';
-import '/model/works_request.dart';
+import '/model/request_params.dart';
 import 'api_providers.dart';
 
 part 'works_provider.g.dart';
 
 @riverpod
 class Works extends _$Works {
-  late WorksRequest _request;
+  late RequestParams _request;
   Completer<WorksInfo>? _completer;
 
   @override
-  FutureOr<WorksInfo> build({WorksRequest? request}) async {
-    _request = request ?? const WorksRequest();
+  FutureOr<WorksInfo> build({RequestParams? request}) async {
+    _request = request ?? const RequestParams();
     return await getPage(1);
   }
 
@@ -54,25 +54,4 @@ class Works extends _$Works {
   }
 }
 
-final worksFilterProvider = StateProvider((ref) => const WorksRequest());
-
-mixin PagedFetcher<T extends PagedDataInfo> {
-  Completer<T>? _completer;
-
-  Future<T> fetchPage(int pageNumber);
-
-  Future<T> getPage(int pageNumber) async {
-    var completer = _completer;
-    if (completer != null && !completer.isCompleted) {
-      return completer.future;
-    }
-
-    completer = Completer<T>();
-    _completer = completer;
-
-    final result = await fetchPage(pageNumber);
-
-    completer.complete(result);
-    return completer.future;
-  }
-}
+final worksFilterProvider = StateProvider((ref) => const RequestParams());

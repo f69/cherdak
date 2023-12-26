@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'works_provider.dart';
+part of 'user_providers.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$worksHash() => r'2d807a23e03fef685e358bcff5e6306d0908cceb';
+String _$usersHash() => r'7e15b64021bf1c7dbe42bf27576a6ca8f1aff30f';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -29,38 +29,38 @@ class _SystemHash {
   }
 }
 
-abstract class _$Works extends BuildlessAutoDisposeAsyncNotifier<WorksInfo> {
-  late final RequestParams? request;
+abstract class _$Users extends BuildlessAutoDisposeAsyncNotifier<UsersInfo> {
+  late final RequestParams? filter;
 
-  FutureOr<WorksInfo> build({
-    RequestParams? request,
+  FutureOr<UsersInfo> build({
+    RequestParams? filter,
   });
 }
 
-/// See also [Works].
-@ProviderFor(Works)
-const worksProvider = WorksFamily();
+/// See also [Users].
+@ProviderFor(Users)
+const usersProvider = UsersFamily();
 
-/// See also [Works].
-class WorksFamily extends Family<AsyncValue<WorksInfo>> {
-  /// See also [Works].
-  const WorksFamily();
+/// See also [Users].
+class UsersFamily extends Family<AsyncValue<UsersInfo>> {
+  /// See also [Users].
+  const UsersFamily();
 
-  /// See also [Works].
-  WorksProvider call({
-    RequestParams? request,
+  /// See also [Users].
+  UsersProvider call({
+    RequestParams? filter,
   }) {
-    return WorksProvider(
-      request: request,
+    return UsersProvider(
+      filter: filter,
     );
   }
 
   @override
-  WorksProvider getProviderOverride(
-    covariant WorksProvider provider,
+  UsersProvider getProviderOverride(
+    covariant UsersProvider provider,
   ) {
     return call(
-      request: provider.request,
+      filter: provider.filter,
     );
   }
 
@@ -76,96 +76,96 @@ class WorksFamily extends Family<AsyncValue<WorksInfo>> {
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'worksProvider';
+  String? get name => r'usersProvider';
 }
 
-/// See also [Works].
-class WorksProvider
-    extends AutoDisposeAsyncNotifierProviderImpl<Works, WorksInfo> {
-  /// See also [Works].
-  WorksProvider({
-    RequestParams? request,
+/// See also [Users].
+class UsersProvider
+    extends AutoDisposeAsyncNotifierProviderImpl<Users, UsersInfo> {
+  /// See also [Users].
+  UsersProvider({
+    RequestParams? filter,
   }) : this._internal(
-          () => Works()..request = request,
-          from: worksProvider,
-          name: r'worksProvider',
+          () => Users()..filter = filter,
+          from: usersProvider,
+          name: r'usersProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$worksHash,
-          dependencies: WorksFamily._dependencies,
-          allTransitiveDependencies: WorksFamily._allTransitiveDependencies,
-          request: request,
+                  : _$usersHash,
+          dependencies: UsersFamily._dependencies,
+          allTransitiveDependencies: UsersFamily._allTransitiveDependencies,
+          filter: filter,
         );
 
-  WorksProvider._internal(
+  UsersProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.request,
+    required this.filter,
   }) : super.internal();
 
-  final RequestParams? request;
+  final RequestParams? filter;
 
   @override
-  FutureOr<WorksInfo> runNotifierBuild(
-    covariant Works notifier,
+  FutureOr<UsersInfo> runNotifierBuild(
+    covariant Users notifier,
   ) {
     return notifier.build(
-      request: request,
+      filter: filter,
     );
   }
 
   @override
-  Override overrideWith(Works Function() create) {
+  Override overrideWith(Users Function() create) {
     return ProviderOverride(
       origin: this,
-      override: WorksProvider._internal(
-        () => create()..request = request,
+      override: UsersProvider._internal(
+        () => create()..filter = filter,
         from: from,
         name: null,
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        request: request,
+        filter: filter,
       ),
     );
   }
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<Works, WorksInfo> createElement() {
-    return _WorksProviderElement(this);
+  AutoDisposeAsyncNotifierProviderElement<Users, UsersInfo> createElement() {
+    return _UsersProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is WorksProvider && other.request == request;
+    return other is UsersProvider && other.filter == filter;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, request.hashCode);
+    hash = _SystemHash.combine(hash, filter.hashCode);
 
     return _SystemHash.finish(hash);
   }
 }
 
-mixin WorksRef on AutoDisposeAsyncNotifierProviderRef<WorksInfo> {
-  /// The parameter `request` of this provider.
-  RequestParams? get request;
+mixin UsersRef on AutoDisposeAsyncNotifierProviderRef<UsersInfo> {
+  /// The parameter `filter` of this provider.
+  RequestParams? get filter;
 }
 
-class _WorksProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<Works, WorksInfo>
-    with WorksRef {
-  _WorksProviderElement(super.provider);
+class _UsersProviderElement
+    extends AutoDisposeAsyncNotifierProviderElement<Users, UsersInfo>
+    with UsersRef {
+  _UsersProviderElement(super.provider);
 
   @override
-  RequestParams? get request => (origin as WorksProvider).request;
+  RequestParams? get filter => (origin as UsersProvider).filter;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

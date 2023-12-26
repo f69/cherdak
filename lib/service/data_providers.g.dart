@@ -20,7 +20,7 @@ final countriesProvider = AutoDisposeFutureProvider<List<CountryInfo>>.internal(
 );
 
 typedef CountriesRef = AutoDisposeFutureProviderRef<List<CountryInfo>>;
-String _$genresHash() => r'b89d0d42cc4b536690c95e39fd08452b52f01287';
+String _$genresHash() => r'a50ae5f66e5ceaa250079bc344a852cbf998f6e7';
 
 /// Copied from Dart SDK
 class _SystemHash {

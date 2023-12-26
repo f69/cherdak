@@ -75,7 +75,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<GenreInfoResponse> getGenres(WorksRequest request) async {
+  Future<GenreInfoResponse> getGenres(RequestParams request) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -105,7 +105,7 @@ class _ApiClient implements ApiClient {
   @override
   Future<WorksInfo> getWorks(
     int page,
-    WorksRequest request,
+    RequestParams request,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'page': page};
@@ -157,6 +157,37 @@ class _ApiClient implements ApiClient {
               baseUrl,
             ))));
     final value = WorkInfoResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<UsersInfo> getAuthors(
+    int page,
+    RequestParams request,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'page': page};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _result = await _dio
+        .fetch<Map<String, dynamic>>(_setStreamType<UsersInfo>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              'authors',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = UsersInfo.fromJson(_result.data!);
     return value;
   }
 

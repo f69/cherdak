@@ -12,7 +12,7 @@ import '/components/base_app_bar.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
-import '/model/works_request.dart';
+import '/model/request_params.dart';
 import '/service/data_providers.dart';
 import '/service/works_provider.dart';
 import 'filter_value_page.dart';
@@ -51,7 +51,7 @@ class FilterPage extends HookConsumerWidget {
           values: categories.values.toList(),
           selectedValue: categories[filter.value.categoryId ?? 1]));
       if (value != null) {
-        filter.value = WorksRequest(
+        filter.value = RequestParams(
           categoryId: getCategoryIdByName(value),
           countryId: filter.value.countryId,
         );
@@ -71,7 +71,7 @@ class FilterPage extends HookConsumerWidget {
                   ?.firstWhereOrNull((e) => e.id == filter.value.genreId)
                   ?.title));
       if (value != null) {
-        filter.value = WorksRequest(
+        filter.value = RequestParams(
           categoryId: filter.value.categoryId,
           genreId: genresList?.firstWhereOrNull((e) => e.title == value)?.id,
           countryId: filter.value.countryId,
@@ -92,7 +92,7 @@ class FilterPage extends HookConsumerWidget {
                   ?.firstWhereOrNull((e) => e.id == filter.value.countryId)
                   ?.title));
       if (value != null) {
-        filter.value = WorksRequest(
+        filter.value = RequestParams(
           categoryId: filter.value.categoryId,
           genreId: filter.value.genreId,
           countryId:
