@@ -10,4 +10,6 @@ abstract class PagedDataInfo<T> {
   final MetadataInfo meta;
 
   bool get allPagesFetched => meta.currentPage == meta.lastPage;
+
+  int get listItemCount => data.length + (allPagesFetched ? 0 : 1);
 }

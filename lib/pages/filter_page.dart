@@ -101,7 +101,7 @@ class FilterPage extends HookConsumerWidget {
       }
     }
 
-    Widget item(String text, String? value) => [
+    Widget filterIItem(String text, String? value, VoidCallback onPressed) => [
           text.text1SemiBold,
           const Spacer(),
           (value ?? context.l10n.all).text1.textColor(AppColors.textLightGrey),
@@ -111,6 +111,7 @@ class FilterPage extends HookConsumerWidget {
             .toRow()
             .padding(bottom: 8)
             .border(bottom: 1, color: AppColors.grey)
+            .pressable(onPressed: onPressed)
             .padding(bottom: 28);
 
     return Scaffold(
@@ -120,11 +121,9 @@ class FilterPage extends HookConsumerWidget {
         actions: [const Icon(Icons.close).pressable(onPressed: context.pop)],
       ),
       body: [
-        item(context.l10n.category, categoryName())
-            .pressable(onPressed: selectCategory),
-        item(context.l10n.genre, genreName()).pressable(onPressed: selectGenre),
-        item(context.l10n.country, countryName())
-            .pressable(onPressed: selectCountry),
+        filterIItem(context.l10n.category, categoryName(), selectCategory),
+        filterIItem(context.l10n.genre, genreName(), selectGenre),
+        filterIItem(context.l10n.country, countryName(), selectCountry),
         const Spacer(),
         AppButton(
           height: 56,
