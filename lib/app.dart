@@ -7,6 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '/app/app_const.dart';
 import '/app/app_theme.dart';
+import '/components/custom_scroll_behavior.dart';
 import '/pages/home_page.dart';
 import '/service/common_providers.dart';
 
@@ -19,7 +20,8 @@ class App extends HookConsumerWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      scrollBehavior: const ScrollBehavior().copyWith(
+      scrollBehavior:
+          const CustomScrollBehavior(androidSdkVersion: 33).copyWith(
         dragDevices: PointerDeviceKind.values.toSet(),
         scrollbars: false,
       ),
