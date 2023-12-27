@@ -46,7 +46,10 @@ class MainMenu extends HookConsumerWidget {
     return Scaffold(
       appBar: BaseAppBar(
         title: appTitle.text2Bold.padding(left: 4),
-        actions: [MenuCloseButton(onPressed: context.scaffold.closeDrawer)],
+        actions: [
+          MenuCloseButton(onPressed: context.scaffold.closeDrawer)
+              .padding(right: 12)
+        ],
         centerTitle: false,
       ),
       body: [

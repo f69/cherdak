@@ -56,6 +56,7 @@ class HomeAppBar extends HookConsumerWidget implements PreferredSizeWidget {
               textAlign: TextAlign.center,
               onTapOutside: checkHideField,
               autofocus: true,
+              onSubmitted: (_) => switchSearch(),
             ).padding(right: 16)
           : null,
       actions: [
