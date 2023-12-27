@@ -18,7 +18,7 @@ class AuthorsPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final filter = ref.watch(usersFilterProvider);
-    final dataProvider = usersProvider(filter: filter);
+    final dataProvider = usersProvider(filter);
     final usersInfoAsync = ref.watch(dataProvider);
 
     Widget activityIndicator() => const CupertinoActivityIndicator().center();

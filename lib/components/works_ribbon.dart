@@ -3,11 +3,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_styles.dart';
+import '/components/app_error_widget.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
-import '/model/works_info.dart';
 import '/model/request_params.dart';
-import '/service/works_provider.dart';
+import '/model/works_info.dart';
+import '/service/work_providers.dart';
 import 'work_card.dart';
 
 class WorksRibbon extends HookConsumerWidget {
@@ -25,7 +26,7 @@ class WorksRibbon extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final request = RequestParams(categoryId: categoryId, userId: userId);
-    final dataProvider = worksProvider(request: request);
+    final dataProvider = worksProvider(request);
     final worksInfoAsync = ref.watch(dataProvider);
 
     final cardWidth = context.screenSize.width - 20 * 2;
@@ -49,10 +50,10 @@ class WorksRibbon extends HookConsumerWidget {
 
               return WorkCard(info: value.data[index])
                   .width(cardWidth)
-                  .padding(right: 8);
+                  .padding(right: index == value.data.length - 1 ? 0 : 8);
             },
           ),
-        AsyncError(:final error) => Text('Error: $error'),
+        AsyncError(:final error) => AppErrorWidget(error: error),
         _ => const CupertinoActivityIndicator().center(),
       }
           .height(cardHeight),

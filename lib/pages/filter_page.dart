@@ -14,7 +14,7 @@ import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
 import '/model/request_params.dart';
 import '/service/data_providers.dart';
-import '/service/works_provider.dart';
+import '/service/work_providers.dart';
 import 'filter_value_page.dart';
 
 class FilterPage extends HookConsumerWidget {

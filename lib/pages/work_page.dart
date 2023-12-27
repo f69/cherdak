@@ -15,7 +15,7 @@ import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/works_item.dart';
-import '/service/work_provider.dart';
+import '/service/work_providers.dart';
 import '/widgets/simple_grid.dart';
 
 class WorkPage extends HookConsumerWidget {

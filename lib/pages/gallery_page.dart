@@ -11,7 +11,7 @@ import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/works_info.dart';
-import '/service/works_provider.dart';
+import '/service/work_providers.dart';
 
 class GalleryPage extends HookConsumerWidget {
   const GalleryPage({super.key});
@@ -19,7 +19,7 @@ class GalleryPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final request = ref.watch(worksFilterProvider);
-    final dataProvider = worksProvider(request: request);
+    final dataProvider = worksProvider(request);
     final worksInfoAsync = ref.watch(dataProvider);
 
     final cardWidth = context.screenSize.width - 20 * 2;
