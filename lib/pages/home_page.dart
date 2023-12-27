@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '/components/base_app_bar.dart';
+import '/components/home_app_bar.dart';
 import '/components/main_menu.dart';
-import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/pages/authors_page.dart';
 import '/pages/gallery_page.dart';
@@ -20,15 +18,7 @@ class HomePage extends HookConsumerWidget {
     final menuIndex = ref.watch(mainMenuProvider);
 
     return Scaffold(
-      appBar: BaseAppBar(
-        leading: Builder(
-            builder: (context) => const Icon(Icons.menu)
-                .pressable(onPressed: context.scaffold.openDrawer)),
-        actions: [
-          const Icon(CupertinoIcons.search, size: 18)
-              .pressable(onPressed: () {}),
-        ],
-      ),
+      appBar: const HomeAppBar(),
       drawer: Drawer(
         backgroundColor: context.scaffoldBgColor,
         width: context.screenSize.width,

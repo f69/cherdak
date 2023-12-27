@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import '/model/paged_data_info.dart';
 import '/model/request_params.dart';
 
+const delayedFetch = false;
+
 typedef PageFetchFunction<T> = Future<T> Function(
     int pageNumber, RequestParams params);
 
@@ -33,7 +35,7 @@ mixin PagedFetcher<T extends PagedDataInfo> {
           ? await fetcher!.call(pageNumber, requestParams!)
           : await fetchPage(pageNumber);
 
-      if (kDebugMode) {
+      if (kDebugMode && delayedFetch) {
         await Future.delayed(const Duration(seconds: 2));
       }
 

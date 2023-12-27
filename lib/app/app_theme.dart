@@ -28,6 +28,14 @@ class AppTheme {
         color: AppColors.iconGrey,
         size: 24,
       ),
+      inputDecorationTheme: const InputDecorationTheme(
+        focusColor: AppColors.textWhite,
+        enabledBorder: UnderlineInputBorder(borderSide: BorderSide.none),
+        focusedBorder: UnderlineInputBorder(borderSide: BorderSide.none),
+        fillColor: Colors.white12,
+        filled: true,
+        isDense: true,
+      ),
     );
   }
 }

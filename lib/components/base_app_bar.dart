@@ -26,7 +26,7 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       AppBar(
         leading: leading,
         title: title ?? const Text(appTitle),
-        actions: [...(actions ?? []), const SizedBox(width: 20)],
+        actions: [...(actions ?? []), const SizedBox(width: 8)],
         centerTitle: centerTitle,
         automaticallyImplyLeading: automaticallyImplyLeading,
       ).padding(top: 4),
