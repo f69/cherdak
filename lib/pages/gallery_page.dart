@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_styles.dart';
+import '/components/app_error_widget.dart';
 import '/components/filter_panel.dart';
 import '/components/work_card.dart';
 import '/ext/context_ext.dart';
@@ -63,7 +64,11 @@ class GalleryPage extends HookConsumerWidget {
                 SliverToBoxAdapter(child: 80.gap),
               ],
             AsyncError(:final error) => [
-                SliverFillRemaining(child: Text('Error: $error').center())
+                SliverFillRemaining(
+                  child: AppErrorWidget(
+                      error: error,
+                      onRetry: () => ref.invalidate(dataProvider)),
+                )
               ],
             _ => [SliverFillRemaining(child: activityIndicator())],
           },

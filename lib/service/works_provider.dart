@@ -3,9 +3,8 @@ import 'dart:async';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '/model/paged_data_info.dart';
-import '/model/works_info.dart';
 import '/model/request_params.dart';
+import '/model/works_info.dart';
 import 'api_providers.dart';
 
 part 'works_provider.g.dart';

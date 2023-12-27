@@ -1,7 +1,8 @@
-import 'package:cherdak/model/category.dart';
-import 'package:cherdak/model/genre.dart';
-import 'package:cherdak/model/user_short_info.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '/model/category.dart';
+import '/model/genre.dart';
+import '/model/user_short_info.dart';
 
 part 'work_info.g.dart';
 

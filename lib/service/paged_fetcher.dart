@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
+
 import '/model/paged_data_info.dart';
 import '/model/request_params.dart';
 
@@ -8,10 +10,14 @@ typedef PageFetchFunction<T> = Future<T> Function(
 
 mixin PagedFetcher<T extends PagedDataInfo> {
   Completer<T>? _completer;
-  PageFetchFunction<T>? fetcher;
+
   RequestParams? requestParams;
 
-  Future<T> fetchPage(int pageNumber);
+  PageFetchFunction<T>? fetcher;
+
+  Future<T> fetchPage(int pageNumber) {
+    throw UnimplementedError();
+  }
 
   Future<T> getPage(int pageNumber) async {
     var completer = _completer;
@@ -22,11 +28,20 @@ mixin PagedFetcher<T extends PagedDataInfo> {
     completer = Completer<T>();
     _completer = completer;
 
-    final result = (fetcher != null && requestParams != null)
-        ? await fetcher!.call(pageNumber, requestParams!)
-        : await fetchPage(pageNumber);
+    try {
+      final result = (fetcher != null && requestParams != null)
+          ? await fetcher!.call(pageNumber, requestParams!)
+          : await fetchPage(pageNumber);
 
-    completer.complete(result);
-    return completer.future;
+      if (kDebugMode) {
+        await Future.delayed(const Duration(seconds: 2));
+      }
+
+      completer.complete(result);
+      return completer.future;
+    } catch (error, stack) {
+      completer.completeError(error, stack);
+      rethrow;
+    }
   }
 }

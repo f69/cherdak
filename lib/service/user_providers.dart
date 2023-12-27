@@ -12,8 +12,6 @@ part 'user_providers.g.dart';
 
 @riverpod
 class Users extends _$Users with PagedFetcher<UsersInfo> {
-  // late RequestParams _request;
-
   @override
   FutureOr<UsersInfo> build({RequestParams? filter}) async {
     final client = ref.watch(apiClientProvider);
@@ -22,18 +20,6 @@ class Users extends _$Users with PagedFetcher<UsersInfo> {
 
     return await getPage(1);
   }
-
-  @override
-  Future<UsersInfo> fetchPage(int pageNumber) {
-    throw UnimplementedError();
-  }
-
-  // @override
-  // Future<UsersInfo> fetchPage(int pageNumber) async {
-  //   final client = ref.watch(apiClientProvider);
-  //   final result = await client.getAuthors(pageNumber, _request);
-  //   return result;
-  // }
 
   Future<UsersInfo?> getNextPage() async {
     final oldValue = state.value;

@@ -33,5 +33,13 @@
   "sorting": "Sorting",
   "filter": "Filter",
   "all": "All",
-  "country": "Country"
+  "country": "Country",
+  "retry": "Retry",
+  "authorsCount": "{count} authors",
+  "@authorsCount": {
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "authorsPageIntro": "Откройте для себя новых художников вместе с Cherdak Dalí уже сегодня! Посещайте страницы перспективных и признанных мастеров, а также начинающих художников, которым есть что сказать этому миру."
 }

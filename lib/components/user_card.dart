@@ -23,6 +23,7 @@ class UserCard extends StatelessWidget {
     return [
       CachedNetworkImage(
         imageUrl: '$avatarsBase/${user.image}',
+        errorWidget: (context, _, __) => avatarImageErrorWidget,
         fit: BoxFit.contain,
         alignment: Alignment.center,
       ).aspectRatio(aspectRatio: 1),

@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:styled_widget/styled_widget.dart';
+
 const appTitle = 'Cherdak Dalí';
 
 const supportedLanguages = ['en', 'ru'];
@@ -14,3 +17,7 @@ const categories = {
   6: "Скетч",
   5: "Скульптура",
 };
+
+final avatarImageErrorWidget =
+    const Icon(Icons.person_2_sharp, color: Colors.white12, size: 200)
+        .padding(top: 40);
