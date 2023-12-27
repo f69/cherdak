@@ -4,7 +4,6 @@ import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_styles.dart';
 import '/components/app_error_widget.dart';
-import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/request_params.dart';
 import '/model/works_info.dart';
@@ -29,8 +28,9 @@ class WorksRibbon extends HookConsumerWidget {
     final dataProvider = worksProvider(request);
     final worksInfoAsync = ref.watch(dataProvider);
 
-    final cardWidth = context.screenSize.width - 20 * 2;
-    final cardHeight = cardWidth + 147;
+    final cardSize = AppSizes.workCardSize(context);
+
+    Widget activityIndicator() => const CupertinoActivityIndicator().center();
 
     return [
       if (headerBuilder != null)
@@ -43,20 +43,18 @@ class WorksRibbon extends HookConsumerWidget {
             itemBuilder: (context, index) {
               if (index == value.data.length) {
                 Future(() => ref.read(dataProvider.notifier).getNextPage());
-                return const CupertinoActivityIndicator()
-                    .center()
-                    .width(cardWidth / 2);
+                return activityIndicator().width(cardSize.width / 2);
               }
 
               return WorkCard(info: value.data[index])
-                  .width(cardWidth)
+                  .width(cardSize.width)
                   .padding(right: index == value.data.length - 1 ? 0 : 8);
             },
           ),
         AsyncError(:final error) => AppErrorWidget(error: error),
-        _ => const CupertinoActivityIndicator().center(),
+        _ => activityIndicator(),
       }
-          .height(cardHeight),
+          .height(cardSize.height),
     ].toColumnCrossStart();
   }
 }

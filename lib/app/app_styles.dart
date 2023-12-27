@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+import '/ext/context_ext.dart';
 import 'app_colors.dart';
 
 class AppStyles {
@@ -72,4 +73,9 @@ extension TextStyleExt on String {
 
 class AppSizes {
   static const p20 = 20.0;
+
+  static Size workCardSize(BuildContext context) {
+    final width = context.screenSize.width - p20 * 2;
+    return Size(width, width + 147);
+  }
 }

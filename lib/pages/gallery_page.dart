@@ -22,8 +22,7 @@ class GalleryPage extends HookConsumerWidget {
     final dataProvider = worksProvider(request);
     final worksInfoAsync = ref.watch(dataProvider);
 
-    final cardWidth = context.screenSize.width - 20 * 2;
-    final cardHeight = cardWidth + 147;
+    final cardSize = AppSizes.workCardSize(context);
 
     Widget activityIndicator() => const CupertinoActivityIndicator().center();
 
@@ -36,10 +35,10 @@ class GalleryPage extends HookConsumerWidget {
     itemBuilder(WorksInfo value) => (context, index) {
           if (index == value.data.length) {
             Future(() => ref.read(dataProvider.notifier).getNextPage());
-            return activityIndicator().height(cardHeight / 2);
+            return activityIndicator().height(cardSize.height / 2);
           }
           return WorkCard(info: value.data[index])
-              .height(cardHeight)
+              .height(cardSize.height)
               .padding(bottom: 32, horizontal: AppSizes.p20);
         };
 

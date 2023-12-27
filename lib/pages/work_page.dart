@@ -9,6 +9,7 @@ import '/app/app_const.dart';
 import '/app/app_styles.dart';
 import '/components/app_button.dart';
 import '/components/base_app_bar.dart';
+import '/components/user_name_header.dart';
 import '/components/user_works_ribbon.dart';
 import '/components/work_stats_row.dart';
 import '/ext/app_ext.dart';
@@ -99,22 +100,5 @@ class WorkPage extends HookConsumerWidget {
           ),
       ].toColumn().padding(bottom: 40).scrollable(),
     );
-  }
-}
-
-class UserNameHeader extends StatelessWidget {
-  const UserNameHeader({super.key, required this.name});
-  final String name;
-
-  @override
-  Widget build(BuildContext context) {
-    final parts = name.split(' ');
-    final first = parts.first;
-    parts.removeAt(0);
-    final other = parts.join(' ');
-    return [
-      first.h1.padding(right: 20),
-      if (other.isNotEmpty) other.h1Outlined,
-    ].toColumnCrossStart();
   }
 }
