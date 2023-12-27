@@ -6,9 +6,11 @@ import '/app/app_colors.dart';
 import '/app/app_const.dart';
 import '/app/app_styles.dart';
 import '/ext/app_ext.dart';
+import '/ext/context_ext.dart';
 import '/ext/widget_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/user_info.dart';
+import '/pages/user_page.dart';
 
 class UserCard extends StatelessWidget {
   const UserCard({super.key, required this.user});
@@ -16,9 +18,7 @@ class UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void showUserPage() {
-      // context.pushMaterial((_) => WorkPage(info: info));
-    }
+    void showUserPage() => context.pushMaterial((_) => UserPage(user: user));
 
     return [
       CachedNetworkImage(

@@ -19,6 +19,10 @@ class UserWorksRibbon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final headerText = excludeWorkSlug == null
+        ? context.l10n.authorWorks
+        : context.l10n.authorOtherWorks;
+
     return WorksRibbon(
       userId: userId,
       headerBuilder: (context, info, _) {
@@ -26,7 +30,7 @@ class UserWorksRibbon extends StatelessWidget {
         final countText = workCount == null ? '' : '$workCount';
 
         return [
-          context.l10n.authorOtherWorks.h3.padding(right: 8),
+          headerText.h3.padding(right: 8),
           countText.text3.textColor(AppColors.beige),
         ].toRowBaseline().padding(bottom: 32).padding(horizontal: AppSizes.p20);
       },
