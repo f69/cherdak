@@ -13,7 +13,7 @@ mixin PagedFetcher<T extends PagedDataInfo> {
 
   RequestParams? requestParams;
 
-  PageFetchFunction<T>? fetcher;
+  PageFetchFunction<T>? get fetcher => null;
 
   Future<T> fetchPage(int pageNumber) {
     throw UnimplementedError();

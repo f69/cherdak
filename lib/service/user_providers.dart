@@ -14,12 +14,16 @@ part 'user_providers.g.dart';
 class Users extends _$Users with PagedFetcher<UsersInfo> {
   @override
   FutureOr<UsersInfo> build({RequestParams? filter}) async {
-    final client = ref.watch(apiClientProvider);
-    fetcher = client.getAuthors;
+    // final client = ref.watch(apiClientProvider);
+    // fetcher = client.getAuthors;
     requestParams = filter ?? const RequestParams();
 
     return await getPage(1);
   }
+
+  @override
+  PageFetchFunction<UsersInfo>? get fetcher =>
+      ref.watch(apiClientProvider).getAuthors;
 
   Future<UsersInfo?> getNextPage() async {
     final oldValue = state.value;
