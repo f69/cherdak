@@ -28,7 +28,11 @@ class UserCard extends StatelessWidget {
         alignment: Alignment.center,
       ).aspectRatio(aspectRatio: 1),
       [
-        user.name.text2Bold.padding(bottom: 10),
+        [
+          user.name.text2Bold,
+          if (user.rate != null)
+            '${user.rate}'.text2SemiBold.textColor(AppColors.beige),
+        ].toRowBetween().padding(bottom: 10),
         user.place.text2.textColor(AppColors.textLightGrey),
       ]
           .toColumnCrossStart()
