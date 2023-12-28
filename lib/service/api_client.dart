@@ -1,14 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
-import '/model/users_info.dart';
 import '/app/app_const.dart';
 import '/model/country_info.dart';
 import '/model/genre_info.dart';
+import '/model/request_params.dart';
+import '/model/services_info.dart';
 import '/model/stats_info.dart';
+import '/model/users_info.dart';
 import '/model/work_info.dart';
 import '/model/works_info.dart';
-import '/model/request_params.dart';
 
 part 'api_client.g.dart';
 
@@ -34,5 +35,9 @@ abstract class ApiClient {
 
   @POST('authors')
   Future<UsersInfo> getAuthors(
+      @Query('page') int page, @Body() RequestParams request);
+
+  @POST('services')
+  Future<ServicesInfo> getServices(
       @Query('page') int page, @Body() RequestParams request);
 }

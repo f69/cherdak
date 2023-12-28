@@ -7,6 +7,7 @@ import '/app/app_const.dart';
 import '/app/app_styles.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
+import '/ext/num_ext.dart';
 import '/ext/widget_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/works_item.dart';
@@ -37,7 +38,7 @@ class WorkCard extends StatelessWidget {
         '${info.category.title}, ${info.genre.title}'
             .text3
             .textColor(AppColors.textLightGrey),
-        const SizedBox(height: 10),
+        10.gap,
         user.name.text2Bold,
         (user.place ?? '').text3.textColor(AppColors.textLightGrey),
       ]

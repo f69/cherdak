@@ -17,6 +17,8 @@ class RequestParams extends Equatable {
     this.onlySelected = false,
     this.userId,
     this.searchString,
+    this.countrySlug,
+    this.serviceType,
   });
 
   final int? categoryId;
@@ -28,6 +30,9 @@ class RequestParams extends Equatable {
   final bool onlySelected;
   final int? userId;
   final String? searchString;
+  final String? countrySlug;
+  @JsonKey(name: 'type')
+  final String? serviceType;
 
   factory RequestParams.fromJson(Map<String, dynamic> json) =>
       _$RequestParamsFromJson(json);
@@ -45,5 +50,7 @@ class RequestParams extends Equatable {
         onlySelected,
         userId,
         searchString,
+        countrySlug,
+        serviceType,
       ];
 }

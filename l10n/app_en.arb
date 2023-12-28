@@ -49,5 +49,12 @@
   "email": "Email:",
   "aboutAuthor": "About author:",
   "favorite": "To favorite",
-  "share": "Share"
+  "share": "Share",
+  "servicePageIntro": "Просмотривайте примеры работ авторов на странице выбранной услуги и заказывайте роспись стен, скульптуру, свой портрет или копию полотен известных мастеров. ",
+  "servicesCount": "{count} services",
+  "@servicesCount": {
+    "placeholders": {
+      "count": {}
+    }
+  }
 }

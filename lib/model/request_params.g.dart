@@ -25,6 +25,10 @@ abstract class _$RequestParamsCWProxy {
 
   RequestParams searchString(String? searchString);
 
+  RequestParams countrySlug(String? countrySlug);
+
+  RequestParams serviceType(String? serviceType);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `RequestParams(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -41,6 +45,8 @@ abstract class _$RequestParamsCWProxy {
     bool? onlySelected,
     int? userId,
     String? searchString,
+    String? countrySlug,
+    String? serviceType,
   });
 }
 
@@ -81,6 +87,14 @@ class _$RequestParamsCWProxyImpl implements _$RequestParamsCWProxy {
       this(searchString: searchString);
 
   @override
+  RequestParams countrySlug(String? countrySlug) =>
+      this(countrySlug: countrySlug);
+
+  @override
+  RequestParams serviceType(String? serviceType) =>
+      this(serviceType: serviceType);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `RequestParams(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -98,6 +112,8 @@ class _$RequestParamsCWProxyImpl implements _$RequestParamsCWProxy {
     Object? onlySelected = const $CopyWithPlaceholder(),
     Object? userId = const $CopyWithPlaceholder(),
     Object? searchString = const $CopyWithPlaceholder(),
+    Object? countrySlug = const $CopyWithPlaceholder(),
+    Object? serviceType = const $CopyWithPlaceholder(),
   }) {
     return RequestParams(
       categoryId: categoryId == const $CopyWithPlaceholder()
@@ -138,6 +154,14 @@ class _$RequestParamsCWProxyImpl implements _$RequestParamsCWProxy {
           ? _value.searchString
           // ignore: cast_nullable_to_non_nullable
           : searchString as String?,
+      countrySlug: countrySlug == const $CopyWithPlaceholder()
+          ? _value.countrySlug
+          // ignore: cast_nullable_to_non_nullable
+          : countrySlug as String?,
+      serviceType: serviceType == const $CopyWithPlaceholder()
+          ? _value.serviceType
+          // ignore: cast_nullable_to_non_nullable
+          : serviceType as String?,
     );
   }
 }
@@ -163,6 +187,8 @@ RequestParams _$RequestParamsFromJson(Map<String, dynamic> json) =>
       onlySelected: json['only_selected'] as bool? ?? false,
       userId: json['user_id'] as int?,
       searchString: json['search_string'] as String?,
+      countrySlug: json['country_slug'] as String?,
+      serviceType: json['type'] as String?,
     );
 
 Map<String, dynamic> _$RequestParamsToJson(RequestParams instance) =>
@@ -176,4 +202,6 @@ Map<String, dynamic> _$RequestParamsToJson(RequestParams instance) =>
       'only_selected': instance.onlySelected,
       'user_id': instance.userId,
       'search_string': instance.searchString,
+      'country_slug': instance.countrySlug,
+      'type': instance.serviceType,
     };

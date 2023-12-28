@@ -22,9 +22,14 @@ abstract class PagedDataNotifier<T extends PagedDataInfo>
     }
 
     final pageNumber = (oldValue?.meta.currentPage ?? 0) + 1;
-    final page = await getPage(pageNumber);
-    page.data.insertAll(0, oldValue?.data ?? []);
-    state = AsyncData(page);
-    return page;
+    try {
+      final page = await getPage(pageNumber);
+      page.data.insertAll(0, oldValue?.data ?? []);
+      state = AsyncData(page);
+      return page;
+    } catch (error, stack) {
+      state = AsyncError(error, stack);
+      return oldValue;
+    }
   }
 }
