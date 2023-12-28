@@ -8,8 +8,8 @@ part of 'metadata_info.dart';
 
 MetadataInfo _$MetadataInfoFromJson(Map<String, dynamic> json) => MetadataInfo(
       totalItems: json['total'] as int,
-      startItem: json['from'] as int,
-      endItem: json['to'] as int,
+      startItem: json['from'] as int?,
+      endItem: json['to'] as int?,
       itemsPerPage: json['per_page'] as int,
       currentPage: json['current_page'] as int,
       lastPage: json['last_page'] as int,

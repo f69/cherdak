@@ -5,12 +5,14 @@ import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_styles.dart';
 import '/components/app_error_widget.dart';
+import '/components/filter_panel.dart';
 import '/components/user_card.dart';
 import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/users_info.dart';
 import '/service/user_providers.dart';
+import 'filter_page.dart';
 
 class AuthorsPage extends HookConsumerWidget {
   const AuthorsPage({super.key});
@@ -70,7 +72,12 @@ class AuthorsPage extends HookConsumerWidget {
           },
         ],
       ),
-      // const FilterPanel().alignment(Alignment.bottomCenter).safeArea(),
+      FilterPanel(
+        filter: filter,
+        onFilter: (value) =>
+            ref.read(usersFilterProvider.notifier).state = value,
+        options: const {FilterOption.country},
+      ).alignment(Alignment.bottomCenter).safeArea(),
     ].toStack();
   }
 }

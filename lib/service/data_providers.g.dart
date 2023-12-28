@@ -6,11 +6,11 @@ part of 'data_providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$countriesHash() => r'23dc044e92088777280f35e15d5efc5383c13bd7';
+String _$countriesHash() => r'71238530a7a35fb211c58dd29b2e66b35ed65809';
 
 /// See also [countries].
 @ProviderFor(countries)
-final countriesProvider = AutoDisposeFutureProvider<List<CountryInfo>>.internal(
+final countriesProvider = FutureProvider<List<CountryInfo>>.internal(
   countries,
   name: r'countriesProvider',
   debugGetCreateSourceHash:
@@ -19,8 +19,8 @@ final countriesProvider = AutoDisposeFutureProvider<List<CountryInfo>>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef CountriesRef = AutoDisposeFutureProviderRef<List<CountryInfo>>;
-String _$genresHash() => r'a50ae5f66e5ceaa250079bc344a852cbf998f6e7';
+typedef CountriesRef = FutureProviderRef<List<CountryInfo>>;
+String _$genresHash() => r'9af30d88a622984e4b0010c535a5073c5e79c614';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -86,7 +86,7 @@ class GenresFamily extends Family<AsyncValue<List<GenreInfo>>> {
 }
 
 /// See also [genres].
-class GenresProvider extends AutoDisposeFutureProvider<List<GenreInfo>> {
+class GenresProvider extends FutureProvider<List<GenreInfo>> {
   /// See also [genres].
   GenresProvider(
     int categoryId,
@@ -137,7 +137,7 @@ class GenresProvider extends AutoDisposeFutureProvider<List<GenreInfo>> {
   }
 
   @override
-  AutoDisposeFutureProviderElement<List<GenreInfo>> createElement() {
+  FutureProviderElement<List<GenreInfo>> createElement() {
     return _GenresProviderElement(this);
   }
 
@@ -155,13 +155,13 @@ class GenresProvider extends AutoDisposeFutureProvider<List<GenreInfo>> {
   }
 }
 
-mixin GenresRef on AutoDisposeFutureProviderRef<List<GenreInfo>> {
+mixin GenresRef on FutureProviderRef<List<GenreInfo>> {
   /// The parameter `categoryId` of this provider.
   int get categoryId;
 }
 
-class _GenresProviderElement
-    extends AutoDisposeFutureProviderElement<List<GenreInfo>> with GenresRef {
+class _GenresProviderElement extends FutureProviderElement<List<GenreInfo>>
+    with GenresRef {
   _GenresProviderElement(super.provider);
 
   @override

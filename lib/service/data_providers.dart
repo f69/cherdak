@@ -7,14 +7,14 @@ import 'api_providers.dart';
 
 part 'data_providers.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 Future<List<CountryInfo>> countries(CountriesRef ref) async {
   final client = ref.watch(apiClientProvider);
   final result = await client.getCountries();
   return result.data;
 }
 
-@riverpod
+@Riverpod(keepAlive: true)
 Future<List<GenreInfo>> genres(GenresRef ref, int categoryId) async {
   final client = ref.watch(apiClientProvider);
   final result = await client.getGenres(RequestParams(categoryId: categoryId));

@@ -14,16 +14,23 @@ import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
 import '/model/request_params.dart';
 import '/service/data_providers.dart';
-import '/service/work_providers.dart';
 import 'filter_value_page.dart';
 
+enum FilterOption { category, genre, country, serviceType }
+
 class FilterPage extends HookConsumerWidget {
-  const FilterPage({super.key});
+  const FilterPage({
+    super.key,
+    this.initialFilter,
+    this.options = const {},
+  });
+
+  final RequestParams? initialFilter;
+  final Set<FilterOption> options;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final currentFilter = ref.watch(worksFilterProvider);
-    final filter = useState(currentFilter);
+    final filter = useState(initialFilter ?? const RequestParams());
     final countriesList = ref.watch(countriesProvider).valueOrNull;
     final genresList =
         ref.watch(genresProvider(filter.value.categoryId ?? 1)).valueOrNull;
@@ -38,6 +45,8 @@ class FilterPage extends HookConsumerWidget {
         ?.firstWhereOrNull((e) => e.id == filter.value.countryId)
         ?.title;
 
+    String? serviceName() => serviceTypes[filter.value.serviceType];
+
     int getCategoryIdByName(String name) {
       for (final entry in categories.entries) {
         if (entry.value == name) return entry.key;
@@ -45,21 +54,29 @@ class FilterPage extends HookConsumerWidget {
       return 1;
     }
 
+    String? getServiceTypeByName(String name) {
+      for (final entry in serviceTypes.entries) {
+        if (entry.value == name) return entry.key;
+      }
+      return null;
+    }
+
     void selectCategory() async {
-      final value = await context.pushMaterial((_) => FilterValuePage(
+      final selectedName = await context.pushMaterial((_) => FilterValuePage(
           caption: context.l10n.category,
           values: categories.values.toList(),
           selectedValue: categories[filter.value.categoryId ?? 1]));
-      if (value != null) {
+
+      if (selectedName != null) {
         filter.value = RequestParams(
-          categoryId: getCategoryIdByName(value),
+          categoryId: getCategoryIdByName(selectedName),
           countryId: filter.value.countryId,
         );
       }
     }
 
     void selectGenre() async {
-      final value = await context.pushMaterial((_) => FilterValuePage(
+      final selectedName = await context.pushMaterial((_) => FilterValuePage(
           caption: context.l10n.genre,
           values: [
             context.l10n.all,
@@ -70,17 +87,19 @@ class FilterPage extends HookConsumerWidget {
               : genresList
                   ?.firstWhereOrNull((e) => e.id == filter.value.genreId)
                   ?.title));
-      if (value != null) {
+
+      if (selectedName != null) {
         filter.value = RequestParams(
           categoryId: filter.value.categoryId,
-          genreId: genresList?.firstWhereOrNull((e) => e.title == value)?.id,
+          genreId:
+              genresList?.firstWhereOrNull((e) => e.title == selectedName)?.id,
           countryId: filter.value.countryId,
         );
       }
     }
 
     void selectCountry() async {
-      final value = await context.pushMaterial((_) => FilterValuePage(
+      final selectedName = await context.pushMaterial((_) => FilterValuePage(
           caption: context.l10n.country,
           values: [
             context.l10n.all,
@@ -91,46 +110,80 @@ class FilterPage extends HookConsumerWidget {
               : countriesList
                   ?.firstWhereOrNull((e) => e.id == filter.value.countryId)
                   ?.title));
-      if (value != null) {
-        filter.value = RequestParams(
-          categoryId: filter.value.categoryId,
-          genreId: filter.value.genreId,
-          countryId:
-              countriesList?.firstWhereOrNull((e) => e.title == value)?.id,
+
+      if (selectedName != null) {
+        final selectedCountry =
+            countriesList?.firstWhereOrNull((e) => e.title == selectedName);
+
+        filter.value = filter.value.copyWith(
+          countryId: selectedCountry?.id,
+          countrySlug: selectedCountry?.slug,
         );
       }
     }
 
-    Widget filterIItem(String text, String? value, VoidCallback onPressed) => [
-          text.text1SemiBold,
-          const Spacer(),
-          (value ?? context.l10n.all).text1.textColor(AppColors.textLightGrey),
-          8.gap,
-          const Icon(Icons.arrow_forward_ios, color: AppColors.beige)
-        ]
-            .toRow()
-            .padding(bottom: 8)
-            .border(bottom: 1, color: AppColors.grey)
-            .pressable(onPressed: onPressed)
-            .padding(bottom: 28);
+    void selectService() async {
+      final selectedName = await context.pushMaterial((_) => FilterValuePage(
+          caption: context.l10n.serviceType,
+          values: [
+            context.l10n.all,
+            ...serviceTypes.values,
+          ],
+          selectedValue: serviceTypes[filter.value.serviceType]));
+
+      if (selectedName != null) {
+        filter.value = filter.value
+            .copyWith(serviceType: getServiceTypeByName(selectedName));
+      }
+    }
+
+    Widget filterItem(
+      FilterOption option,
+      String text,
+      String? value,
+      VoidCallback onPressed,
+    ) {
+      if (!options.contains(option)) {
+        return const SizedBox.shrink();
+      }
+
+      return [
+        text.text1SemiBold,
+        const Spacer(),
+        (value ?? context.l10n.all).text1.textColor(AppColors.textLightGrey),
+        8.gap,
+        const Icon(Icons.arrow_forward_ios, color: AppColors.beige)
+      ]
+          .toRow()
+          .padding(bottom: 8)
+          .border(bottom: 1, color: AppColors.grey)
+          .pressable(onPressed: onPressed)
+          .padding(bottom: 28);
+    }
 
     return Scaffold(
       appBar: BaseAppBar(
         title: context.l10n.filter.text2Bold.padding(left: 4),
         centerTitle: false,
-        actions: [const Icon(Icons.close).pressable(onPressed: context.pop)],
+        actions: [
+          const Icon(Icons.close)
+              .padding(right: 8)
+              .pressable(onPressed: context.pop)
+        ],
       ),
       body: [
-        filterIItem(context.l10n.category, categoryName(), selectCategory),
-        filterIItem(context.l10n.genre, genreName(), selectGenre),
-        filterIItem(context.l10n.country, countryName(), selectCountry),
+        filterItem(FilterOption.category, context.l10n.category, categoryName(),
+            selectCategory),
+        filterItem(
+            FilterOption.genre, context.l10n.genre, genreName(), selectGenre),
+        filterItem(FilterOption.country, context.l10n.country, countryName(),
+            selectCountry),
+        filterItem(FilterOption.serviceType, context.l10n.serviceType,
+            serviceName(), selectService),
         const Spacer(),
         AppButton(
           height: 56,
-          onPressed: () {
-            ref.read(worksFilterProvider.notifier).state = filter.value;
-            context.pop();
-          },
+          onPressed: () => context.pop(filter.value),
           child: context.l10n.search.toUpperCase().text2Bold,
         ),
       ]

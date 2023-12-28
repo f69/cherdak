@@ -5,12 +5,14 @@ import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_styles.dart';
 import '/components/app_error_widget.dart';
+import '/components/filter_panel.dart';
 import '/components/service_card.dart';
 import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/services_info.dart';
 import '/service/service_providers.dart';
+import 'filter_page.dart';
 
 class ServicesPage extends HookConsumerWidget {
   const ServicesPage({super.key});
@@ -70,7 +72,12 @@ class ServicesPage extends HookConsumerWidget {
           },
         ],
       ),
-      // const FilterPanel().alignment(Alignment.bottomCenter).safeArea(),
+      FilterPanel(
+        filter: filter,
+        onFilter: (value) =>
+            ref.read(servicesFilterProvider.notifier).state = value,
+        options: const {FilterOption.country, FilterOption.serviceType},
+      ).alignment(Alignment.bottomCenter).safeArea(),
     ].toStack();
   }
 }

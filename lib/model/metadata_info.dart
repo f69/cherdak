@@ -8,10 +8,10 @@ class MetadataInfo {
   final int totalItems;
 
   @JsonKey(name: 'from')
-  final int startItem;
+  final int? startItem;
 
   @JsonKey(name: 'to')
-  final int endItem;
+  final int? endItem;
 
   @JsonKey(name: 'per_page')
   final int itemsPerPage;

@@ -12,14 +12,15 @@ import '/ext/num_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/works_info.dart';
 import '/service/work_providers.dart';
+import 'filter_page.dart';
 
 class GalleryPage extends HookConsumerWidget {
   const GalleryPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final request = ref.watch(worksFilterProvider);
-    final dataProvider = worksProvider(request);
+    final filter = ref.watch(worksFilterProvider);
+    final dataProvider = worksProvider(filter);
     final worksInfoAsync = ref.watch(dataProvider);
 
     final cardSize = AppSizes.workCardSize(context);
@@ -73,7 +74,17 @@ class GalleryPage extends HookConsumerWidget {
           },
         ],
       ),
-      const FilterPanel().alignment(Alignment.bottomCenter).safeArea(),
+      FilterPanel(
+        sorting: true,
+        filter: filter,
+        onFilter: (value) =>
+            ref.read(worksFilterProvider.notifier).state = value,
+        options: const {
+          FilterOption.category,
+          FilterOption.genre,
+          FilterOption.country
+        },
+      ).alignment(Alignment.bottomCenter).safeArea(),
     ].toStack();
   }
 }

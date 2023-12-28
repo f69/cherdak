@@ -11,11 +11,23 @@ const worksThumbBase = '$siteBase/storage/works_small_images';
 const avatarsBase = '$siteBase/storage/user_avatars';
 
 const categories = {
-  1: "Живопись",
-  4: "Графика",
-  3: "HandMade",
-  6: "Скетч",
-  5: "Скульптура",
+  1: 'Живопись',
+  4: 'Графика',
+  3: 'HandMade',
+  6: 'Скетч',
+  5: 'Скульптура',
+};
+
+const serviceTypes = {
+  'portrait': 'Портрет на заказ',
+  'paint': 'Картина на заказ',
+  'wall_painting': 'Роспись стен',
+  'picture_from_photo': 'Картина по фотографии',
+  'statue': 'Статуя на заказ',
+  'handmade_toys': 'Игрушки ручной работы',
+  'handmade_souvenirs': 'Сувениры ручной работы',
+  'forging': 'Ковка на заказ',
+  'leather': 'Изделия из кожи',
 };
 
 final avatarImageErrorWidget =

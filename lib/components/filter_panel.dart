@@ -6,33 +6,55 @@ import '/app/app_styles.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_ext.dart';
+import '/ext/widget_list_ext.dart';
+import '/model/request_params.dart';
 import '/pages/filter_page.dart';
 
 class FilterPanel extends StatelessWidget {
-  const FilterPanel({super.key});
+  const FilterPanel({
+    super.key,
+    this.sorting = false,
+    this.filter,
+    this.onFilter,
+    this.options = const {},
+  });
+
+  final bool sorting;
+  final RequestParams? filter;
+  final ValueChanged<RequestParams>? onFilter;
+  final Set<FilterOption> options;
 
   @override
   Widget build(BuildContext context) {
     Widget item(String text, Icon icon) => [
           text.text2SemiBold.textColor(AppColors.beige),
-          const Spacer(),
-          icon
-        ].toRow().height(60);
+          if (sorting) const Spacer(),
+          icon.padding(left: 4),
+        ].toRowMainCenter().height(60);
 
     void editSorting() {}
 
-    void editFilter() {
-      context.pushMaterial((context) => const FilterPage());
+    void editFilter() async {
+      final newFilter = await context.pushMaterial((context) => FilterPage(
+            initialFilter: filter,
+            options: options,
+          ));
+
+      if (newFilter != null) {
+        onFilter?.call(newFilter);
+      }
     }
 
     return [
-      item(context.l10n.sorting, const Icon(Icons.keyboard_arrow_down))
-          .padding(left: 20, right: 8)
-          .pressable(
-              onPressed: editSorting,
-              pressedBackgroundColor: AppColors.inactiveGrey.withOpacity(0.5))
-          .expanded(),
-      const VerticalDivider(),
+      if (sorting) ...[
+        item(context.l10n.sorting, const Icon(Icons.keyboard_arrow_down))
+            .padding(left: 20, right: 8)
+            .pressable(
+                onPressed: editSorting,
+                pressedBackgroundColor: AppColors.inactiveGrey.withOpacity(0.5))
+            .expanded(),
+        const VerticalDivider(),
+      ],
       item(context.l10n.filter, const Icon(Icons.tune, size: 16))
           .padding(left: 12, right: 20)
           .pressable(
