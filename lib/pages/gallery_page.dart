@@ -6,6 +6,7 @@ import 'package:styled_widget/styled_widget.dart';
 import '/app/app_styles.dart';
 import '/components/app_error_widget.dart';
 import '/components/filter_panel.dart';
+import '/components/filter_text.dart';
 import '/components/work_card.dart';
 import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
@@ -30,8 +31,9 @@ class GalleryPage extends HookConsumerWidget {
     Widget listHeader(int totalWorks) => [
           '${context.l10n.found} ${context.l10n.worksCount(totalWorks)}'
               .text3Bold,
-          const Divider().padding(top: 12, bottom: 32),
-        ].toColumnCrossStart().padding(horizontal: AppSizes.p20);
+          const Divider().padding(top: 12),
+          FilterText(filter: filter, defaultCategoryId: 1).padding(top: 16),
+        ].toColumnCrossStart().padding(horizontal: AppSizes.p20, bottom: 32);
 
     itemBuilder(WorksInfo value) => (context, index) {
           if (index == value.data.length) {

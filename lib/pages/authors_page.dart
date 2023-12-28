@@ -6,6 +6,7 @@ import 'package:styled_widget/styled_widget.dart';
 import '/app/app_styles.dart';
 import '/components/app_error_widget.dart';
 import '/components/filter_panel.dart';
+import '/components/filter_text.dart';
 import '/components/user_card.dart';
 import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
@@ -28,8 +29,9 @@ class AuthorsPage extends HookConsumerWidget {
     Widget listHeader(int userCount) => [
           '${context.l10n.found} ${context.l10n.authorsCount(userCount)}'
               .text3Bold,
-          const Divider().padding(top: 12, bottom: 32),
-        ].toColumnCrossStart().padding(horizontal: AppSizes.p20);
+          const Divider().padding(top: 12),
+          FilterText(filter: filter).padding(top: 16),
+        ].toColumnCrossStart().padding(horizontal: AppSizes.p20, bottom: 32);
 
     getItemBuilder(UsersInfo value) => (context, index) {
           if (index == value.data.length) {

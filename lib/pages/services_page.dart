@@ -1,3 +1,4 @@
+import 'package:cherdak/components/filter_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -28,8 +29,9 @@ class ServicesPage extends HookConsumerWidget {
     Widget listHeader(int userCount) => [
           '${context.l10n.found} ${context.l10n.servicesCount(userCount)}'
               .text3Bold,
-          const Divider().padding(top: 12, bottom: 32),
-        ].toColumnCrossStart().padding(horizontal: AppSizes.p20);
+          const Divider().padding(top: 12),
+          FilterText(filter: filter).padding(top: 16),
+        ].toColumnCrossStart().padding(horizontal: AppSizes.p20, bottom: 32);
 
     getItemBuilder(ServicesInfo value) => (context, index) {
           if (index == value.data.length) {
