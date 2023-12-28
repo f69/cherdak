@@ -1,6 +1,9 @@
 {
   "ru": [
     "phone",
-    "email"
+    "email",
+    "aboutPageIntro",
+    "ideaHeader",
+    "ideaText"
   ]
 }

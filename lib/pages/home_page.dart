@@ -4,11 +4,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '/components/home_app_bar.dart';
 import '/components/main_menu.dart';
 import '/ext/context_ext.dart';
-import '/pages/authors_page.dart';
-import '/pages/gallery_page.dart';
-import '/pages/services_page.dart';
 import '/service/common_providers.dart';
+import 'about_page.dart';
+import 'authors_page.dart';
+import 'gallery_page.dart';
 import 'main_page.dart';
+import 'services_page.dart';
 
 class HomePage extends HookConsumerWidget {
   const HomePage({super.key});
@@ -29,6 +30,7 @@ class HomePage extends HookConsumerWidget {
         1 => const GalleryPage(),
         2 => const ServicesPage(),
         3 => const AuthorsPage(),
+        4 => const AboutPage(),
         _ => const SizedBox.shrink(),
       },
     );
