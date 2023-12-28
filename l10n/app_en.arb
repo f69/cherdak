@@ -47,5 +47,7 @@
   "rating": "Rating:",
   "phone": "Tel:",
   "email": "Email:",
-  "aboutAuthor": "About author:"
+  "aboutAuthor": "About author:",
+  "favorite": "To favorite",
+  "share": "Share"
 }
