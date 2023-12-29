@@ -49,6 +49,7 @@ class AppStyles {
 
   static final text2SemiBold = text2.copyWith(fontWeight: FontWeight.w600);
   static final text2Bold = text2.copyWith(fontWeight: FontWeight.w700);
+  static final textButton = text2Bold;
 
   static const text3 =
       TextStyle(fontSize: 12, height: 14 / 12, letterSpacing: 0);
@@ -67,6 +68,7 @@ extension TextStyleExt on String {
   Text get text2 => Text(this, style: AppStyles.text2);
   Text get text2SemiBold => Text(this, style: AppStyles.text2SemiBold);
   Text get text2Bold => Text(this, style: AppStyles.text2Bold);
+  Text get textButton => Text(toUpperCase(), style: AppStyles.textButton);
   Text get text3 => Text(this, style: AppStyles.text3);
   Text get text3Bold => Text(this, style: AppStyles.text3Bold);
 }
