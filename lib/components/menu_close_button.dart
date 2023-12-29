@@ -7,6 +7,7 @@ import '/app/app_colors.dart';
 import '/app/app_styles.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
+import '/ext/widget_list_ext.dart';
 
 class MenuCloseButton extends StatelessWidget {
   const MenuCloseButton({super.key, this.onPressed});
@@ -21,17 +22,12 @@ class MenuCloseButton extends StatelessWidget {
           .text2Bold
           .padding(left: 2, vertical: 4)
           .border(bottom: 1, color: AppColors.lightGrey),
-      [
-        const SizedBox(width: 5, height: 5)
-            .border(left: 1, top: 1, color: AppColors.lightGrey)
-            .rotate(angle: -pi / 4, alignment: Alignment.topLeft)
-            .translate(offset: const Offset(0, -0.5)),
-      ].toStack()
+      const SizedBox(width: 5, height: 5)
+          .border(left: 1, top: 1, color: AppColors.lightGrey)
+          .rotate(angle: -pi / 4, alignment: Alignment.topLeft)
+          .translate(offset: const Offset(0, -0.5)),
     ]
-        .toColumn(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-        )
+        .toColumnCrossStart(mainAxisSize: MainAxisSize.min)
         .pressable(onPressed: onPressed ?? context.scaffold.closeDrawer)
         .center();
   }

@@ -7,6 +7,7 @@ import '/app/app_const.dart';
 import '/app/app_styles.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
+import '/ext/num_ext.dart';
 import '/ext/widget_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/service/common_providers.dart';
@@ -27,8 +28,8 @@ class MainMenu extends HookConsumerWidget {
       context.l10n.services,
       context.l10n.authors,
       context.l10n.about,
-      // context.l10n.blog,
     ];
+
     Widget langSwitch(String lang) => lang.h3
         .textColor(lang == currentLang ? AppColors.beige : null)
         .pressable(
@@ -45,26 +46,18 @@ class MainMenu extends HookConsumerWidget {
 
     return Scaffold(
       appBar: BaseAppBar(
+        centerTitle: false,
         title: appTitle.text2Bold.padding(left: 4),
         actions: [
           MenuCloseButton(onPressed: context.scaffold.closeDrawer)
               .padding(right: 12)
         ],
-        centerTitle: false,
       ),
       body: [
-        // [
-        //   const Icon(
-        //     CupertinoIcons.search,
-        //     color: AppColors.inactiveGrey,
-        //     size: 36,
-        //   ).padding(right: 8),
-        //   context.l10n.search.h1
-        // ].toRow().pressable(onPressed: () {}),
         menuItems
             .map((e) => menuItem(e, menuItems.indexOf(e)))
             .toList()
-            .toColumnCrossStart(separator: const SizedBox(height: 12))
+            .toColumnCrossStart(separator: 12.gap)
             .textStyle(style: const TextStyle(color: AppColors.inactiveGrey))
             .padding(top: 60, left: 20),
         const Spacer(),

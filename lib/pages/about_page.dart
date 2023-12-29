@@ -33,7 +33,18 @@ class AboutPage extends StatelessWidget {
             .textColor(AppColors.inactiveGrey)
             .padding(bottom: 16),
         context.l10n.ideaText.text2SemiBold.textColor(AppColors.textLightGrey),
-      ].toColumnCrossStart().padding(horizontal: AppSizes.p20),
+        Image.asset('assets/images/founders.jpg', fit: BoxFit.cover)
+            .padding(top: 32, bottom: 40),
+        context.l10n.implementationHeader.h3
+            .textColor(AppColors.inactiveGrey)
+            .padding(bottom: 16),
+        context.l10n.implementationText.text2SemiBold
+            .textColor(AppColors.textLightGrey),
+        20.gap,
+        context.l10n.implementationText2.text2Bold
+            .padding(left: 12)
+            .border(left: 1, color: AppColors.beige),
+      ].toColumnCrossStart().padding(horizontal: AppSizes.p20, bottom: 80),
     ].toColumnCrossStart().scrollable();
   }
 }
