@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
+import '/app/app_colors.dart';
 import '/app/app_styles.dart';
 import '/components/app_error_widget.dart';
 import '/ext/widget_list_ext.dart';
@@ -30,7 +31,10 @@ class WorksRibbon extends HookConsumerWidget {
 
     final cardSize = AppSizes.workCardSize(context);
 
-    Widget activityIndicator() => const CupertinoActivityIndicator().center();
+    Widget activityIndicator() => const CupertinoActivityIndicator()
+        .center()
+        .border(all: 1, color: AppColors.lightGrey)
+        .width(cardSize.width);
 
     return [
       if (headerBuilder != null)
@@ -43,7 +47,7 @@ class WorksRibbon extends HookConsumerWidget {
             itemBuilder: (context, index) {
               if (index == value.data.length) {
                 Future(() => ref.read(dataProvider.notifier).getNextPage());
-                return activityIndicator().width(cardSize.width / 2);
+                return activityIndicator().padding(left: 8);
               }
 
               return WorkCard(info: value.data[index])
@@ -52,7 +56,7 @@ class WorksRibbon extends HookConsumerWidget {
             },
           ),
         AsyncError(:final error) => AppErrorWidget(error: error),
-        _ => activityIndicator(),
+        _ => activityIndicator().padding(left: AppSizes.p20),
       }
           .height(cardSize.height),
     ].toColumnCrossStart();

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_colors.dart';
+import '/app/app_const.dart';
 import '/app/app_styles.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_list_ext.dart';
@@ -16,7 +17,7 @@ class CategoryPaintingsRibbon extends StatelessWidget {
     return WorksRibbon(
       categoryId: categoryId,
       headerBuilder: (context, info, _) {
-        final categoryName = info?.data.firstOrNull?.category.title ?? '';
+        final categoryName = categories[categoryId] ?? '';
         final workCount = info?.meta.totalItems;
         final countText =
             workCount == null ? '' : context.l10n.worksCount(workCount);
