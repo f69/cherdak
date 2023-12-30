@@ -39,6 +39,7 @@ class WorkPage extends HookConsumerWidget {
       showImageViewer(
         context,
         CachedNetworkImageProvider(imageUrl),
+        immersive: false,
         doubleTapZoomable: true,
         swipeDismissible: true,
       );

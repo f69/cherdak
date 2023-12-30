@@ -1,10 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '/app/app_colors.dart';
 import '/app/app_const.dart';
 import '/app/app_theme.dart';
 import '/components/custom_scroll_behavior.dart';
@@ -35,7 +37,14 @@ class App extends HookConsumerWidget {
       ],
       supportedLocales: supportedLanguages.map((e) => Locale(e)).toList(),
       locale: (lang.isNotEmpty) ? Locale(lang) : null,
-      home: const HomePage(),
+      home: AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.dark.copyWith(
+          statusBarColor: Colors.transparent,
+          systemNavigationBarColor: AppColors.background,
+          // systemNavigationBarIconBrightness: Brightness.dark,
+        ),
+        child: const HomePage(),
+      ),
     );
   }
 }
