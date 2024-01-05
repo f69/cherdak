@@ -5,6 +5,7 @@ import 'package:styled_widget/styled_widget.dart';
 import '/app/app_const.dart';
 import '/app/app_styles.dart';
 import '/components/promo_card.dart';
+import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/service/common_providers.dart';
 
@@ -22,7 +23,7 @@ class PromoRibbon extends HookConsumerWidget {
           caption: '$appTitle — ${context.l10n.onlineGallery}',
           text: context.l10n.galleryPromo,
           actionText: context.l10n.gotoGallery,
-          onAction: () => ref.read(mainMenuProvider.notifier).state = 1,
+          onAction: () => ref.setHomeTab(HomeTab.gallery),
         ),
         PromoCard(
           number: '002',

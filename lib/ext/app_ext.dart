@@ -1,4 +1,6 @@
+import 'package:cherdak/service/common_providers.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '/widgets/pressable.dart';
 
@@ -22,4 +24,8 @@ extension AppWidgetExt on Widget {
         isPressed: isPressed,
         child: this,
       );
+}
+
+extension AppWidgetRefExt on WidgetRef {
+  void setHomeTab(HomeTab tab) => read(homeTabProvider.notifier).state = tab;
 }

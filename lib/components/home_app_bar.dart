@@ -15,25 +15,25 @@ import 'base_app_bar.dart';
 class HomeAppBar extends HookConsumerWidget implements PreferredSizeWidget {
   const HomeAppBar({super.key});
 
-  static const pageIndexesWithSearch = [1, 3];
+  static const tabsWithSearch = [HomeTab.gallery, HomeTab.authors];
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final menuIndex = ref.watch(mainMenuProvider);
-    final hasSearch = pageIndexesWithSearch.contains(menuIndex);
+    final tab = ref.watch(homeTabProvider);
+    final filterProvider =
+        tab == HomeTab.authors ? usersFilterProvider : worksFilterProvider;
+    final filterText = ref.watch(filterProvider).searchString;
+
+    final hasSearch = tabsWithSearch.contains(tab);
     final showSearchField = useState(false);
-    final searchController = useTextEditingController(keys: [menuIndex]);
+    final searchController =
+        useTextEditingController(text: filterText, keys: [tab.index]);
 
     void showMenu() => context.scaffold.openDrawer();
 
     void switchSearch() {
       if (showSearchField.value) {
-        final provider = switch (menuIndex) {
-          3 => usersFilterProvider,
-          _ => worksFilterProvider
-        };
-
-        ref.read(provider.notifier).update(
+        ref.read(filterProvider.notifier).update(
             (state) => state.copyWith(searchString: searchController.text));
       }
       showSearchField.value = !showSearchField.value;

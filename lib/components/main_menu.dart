@@ -19,7 +19,7 @@ class MainMenu extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final menuIndex = ref.watch(mainMenuProvider);
+    final homeTab = ref.watch(homeTabProvider);
     final currentLang = ref.watch(langProvider);
 
     final menuItems = [
@@ -37,9 +37,9 @@ class MainMenu extends HookConsumerWidget {
 
     Widget menuItem(String caption, int index) {
       return caption.h1
-          .textColor(index == menuIndex ? AppColors.textWhite : null)
+          .textColor(index == homeTab.index ? AppColors.textWhite : null)
           .pressable(onPressed: () {
-        ref.read(mainMenuProvider.notifier).state = index;
+        ref.setHomeTab(HomeTab.values[index]);
         context.scaffold.closeDrawer();
       });
     }

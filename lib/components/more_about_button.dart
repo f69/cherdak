@@ -28,7 +28,6 @@ class MoreAboutButton extends HookConsumerWidget {
             .rotate(angle: pi / 4, alignment: Alignment.topRight)
             .translate(offset: const Offset(8, 6)),
       ].toStack().width(150).padding(left: 56, top: 40, right: AppSizes.p20),
-    ].toStack().pressable(
-        onPressed: () => ref.read(mainMenuProvider.notifier).state = 4);
+    ].toStack().pressable(onPressed: () => ref.setHomeTab(HomeTab.about));
   }
 }

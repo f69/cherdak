@@ -46,7 +46,7 @@ void main() async {
       await tester.pumpWidgetBuilder(
         ProviderScope(overrides: [
           apiClientProvider.overrideWithValue(mockClient),
-          mainMenuProvider.overrideWith((ref) => 3),
+          homeTabProvider.overrideWith((ref) => HomeTab.authors),
         ], child: const App()),
       );
       await tester.pump();

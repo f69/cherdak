@@ -16,7 +16,7 @@ class HomePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final menuIndex = ref.watch(mainMenuProvider);
+    final tab = ref.watch(homeTabProvider);
 
     return Scaffold(
       appBar: const HomeAppBar(),
@@ -25,13 +25,12 @@ class HomePage extends HookConsumerWidget {
         width: context.screenSize.width,
         child: const MainMenu(),
       ),
-      body: switch (menuIndex) {
-        0 => const MainPage(),
-        1 => const GalleryPage(),
-        2 => const ServicesPage(),
-        3 => const AuthorsPage(),
-        4 => const AboutPage(),
-        _ => const SizedBox.shrink(),
+      body: switch (tab) {
+        HomeTab.main => const MainPage(),
+        HomeTab.gallery => const GalleryPage(),
+        HomeTab.services => const ServicesPage(),
+        HomeTab.authors => const AuthorsPage(),
+        HomeTab.about => const AboutPage(),
       },
     );
   }
