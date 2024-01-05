@@ -17,7 +17,7 @@ class AppTheme {
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.background,
         foregroundColor: AppColors.textWhite,
-        titleTextStyle: AppStyles.text2Bold,
+        titleTextStyle: AppStyles.text2Bold.copyWith(fontFamily: kFontFamily),
       ),
       dividerTheme: const DividerThemeData(
         color: AppColors.lightGrey,
