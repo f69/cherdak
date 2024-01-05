@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -6,12 +8,14 @@ import 'api_client.dart';
 
 part 'api_providers.g.dart';
 
+var logDio = !Platform.environment.containsKey('FLUTTER_TEST');
+
 @Riverpod(keepAlive: true)
 Dio apiDio(ApiDioRef ref) {
   final dio = Dio();
 
   dio.interceptors.addAll([
-    if (kDebugMode)
+    if (kDebugMode && logDio)
       LogInterceptor(
         request: true,
         requestHeader: true,
