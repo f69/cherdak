@@ -8,17 +8,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 
 import '../complex/smoke_test.dart';
 import '../fixtures/common_data.dart';
-import '../fixtures/mock_path_provider.dart';
 import '../fixtures/mocks.dart';
 import '../tools/golden_tools.dart';
 
 void main() async {
   late MockApiClient mockClient;
-  PathProviderPlatform.instance = FakePathProviderPlatform();
 
   initGoldens();
 
