@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
@@ -21,12 +22,15 @@ class UserCard extends StatelessWidget {
     void showUserPage() => context.pushMaterial((_) => UserPage(user: user));
 
     return [
-      CachedNetworkImage(
-        imageUrl: '$avatarsBase/${user.image}',
-        errorWidget: (context, _, __) => avatarImageErrorWidget,
-        fit: BoxFit.contain,
-        alignment: Alignment.center,
-      ).aspectRatio(aspectRatio: 1),
+      (user.image.isBlank
+              ? avatarImageErrorWidget.center()
+              : CachedNetworkImage(
+                  imageUrl: '$avatarsBase/${user.image}',
+                  errorWidget: (context, _, __) => avatarImageErrorWidget,
+                  fit: BoxFit.contain,
+                  alignment: Alignment.center,
+                ))
+          .aspectRatio(aspectRatio: 1),
       [
         [
           user.name.text2Bold,

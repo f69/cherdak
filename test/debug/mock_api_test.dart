@@ -4,8 +4,8 @@ import 'package:cherdak/model/works_info.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../fixtures/common_data.dart';
-import '../fixtures/mocks.dart';
+import '../mocks/mock_data.dart';
+import '../mocks/mocks.dart';
 import '../tools/utils.dart';
 
 void main() {

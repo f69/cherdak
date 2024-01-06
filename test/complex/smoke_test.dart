@@ -1,7 +1,6 @@
 import 'package:cherdak/app.dart';
 import 'package:cherdak/components/home_header.dart';
 import 'package:cherdak/components/promo_ribbon.dart';
-import 'package:cherdak/model/request_params.dart';
 import 'package:cherdak/model/works_info.dart';
 import 'package:cherdak/pages/main_page.dart';
 import 'package:cherdak/service/api_providers.dart';
@@ -10,11 +9,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mocktail/mocktail.dart';
 
-import '../fixtures/common_data.dart';
-import '../fixtures/mocks.dart';
+import '../mocks/mock_api.dart';
+import '../mocks/mock_data.dart';
+import '../mocks/mocks.dart';
 import '../tools/utils.dart';
-
-class FakeRequestParams extends Fake implements RequestParams {}
 
 void main() {
   late MockApiClient mockClient;

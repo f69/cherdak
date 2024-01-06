@@ -6,15 +6,7 @@ part 'service_info.g.dart';
 
 @JsonSerializable()
 class ServiceInfo {
-  final String slug;
-  final String name;
-  final int rate;
-  final String? image;
-  final String place;
-  final String? placeEn;
-  final List<Service> services;
-
-  ServiceInfo({
+  const ServiceInfo({
     required this.slug,
     required this.name,
     required this.rate,
@@ -23,6 +15,14 @@ class ServiceInfo {
     this.placeEn,
     required this.services,
   });
+
+  final String slug;
+  final String name;
+  final int rate;
+  final String? image;
+  final String place;
+  final String? placeEn;
+  final List<Service> services;
 
   factory ServiceInfo.fromJson(Map<String, dynamic> json) =>
       _$ServiceInfoFromJson(json);

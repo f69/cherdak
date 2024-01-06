@@ -4,7 +4,7 @@ part 'user_info.g.dart';
 
 @JsonSerializable()
 class UserInfo {
-  UserInfo({
+  const UserInfo({
     required this.id,
     required this.slug,
     required this.name,

@@ -338,6 +338,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  flash:
+    dependency: transitive
+    description:
+      name: flash
+      sha256: "1bb5a53158d7834ce0db8b15a0b948ee369698e59c907b751035c3a787f347ac"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
+  fleasy:
+    dependency: "direct main"
+    description:
+      name: fleasy
+      sha256: "32f4e434e9938cbc29a73e6d2de50ff79c88e42a62f4de491c9897851ac333a8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.15.1"
   flutter:
     dependency: "direct main"
     description: flutter

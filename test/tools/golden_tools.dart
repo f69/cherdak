@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
-import '../fixtures/mock_path_provider.dart';
+import '../mocks/mock_path_provider.dart';
 
 class _MyHttpOverrides extends HttpOverrides {}
 

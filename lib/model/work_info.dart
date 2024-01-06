@@ -8,7 +8,7 @@ part 'work_info.g.dart';
 
 @JsonSerializable()
 class WorkInfo {
-  WorkInfo({
+  const WorkInfo({
     required this.id,
     required this.title,
     required this.country,

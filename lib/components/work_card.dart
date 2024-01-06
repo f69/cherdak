@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fleasy/fleasy.dart';
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
@@ -28,11 +29,15 @@ class WorkCard extends StatelessWidget {
     }
 
     return [
-      CachedNetworkImage(
-        imageUrl: '$worksThumbBase/${work.mainImage}',
-        fit: BoxFit.contain,
-        alignment: Alignment.center,
-      ).aspectRatio(aspectRatio: 1),
+      (work.mainImage.isBlank
+              ? workImageErrorWidget
+              : CachedNetworkImage(
+                  imageUrl: '$worksThumbBase/${work.mainImage}',
+                  errorWidget: (context, _, __) => workImageErrorWidget,
+                  fit: BoxFit.contain,
+                  alignment: Alignment.center,
+                ))
+          .aspectRatio(aspectRatio: 1),
       [
         work.title.text2Bold,
         '${info.category.title}, ${info.genre.title}'

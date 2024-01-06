@@ -30,6 +30,10 @@ const serviceTypes = {
   'leather': 'Изделия из кожи',
 };
 
+final workImageErrorWidget =
+    const Icon(Icons.brush_outlined, color: Colors.white12, size: 200)
+        .padding(top: 40);
+
 final avatarImageErrorWidget =
     const Icon(Icons.person_2_sharp, color: Colors.white12, size: 200)
         .padding(top: 40);
