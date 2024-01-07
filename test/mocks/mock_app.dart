@@ -6,7 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'mock_api.dart';
 
-(Widget app, ProviderContainer container) mockApp(
+({Widget app, ProviderContainer container}) mockApp(
     {ProviderContainer? container, HomeTab? homeTab}) {
   final mockClient = getMockApiClient();
 
@@ -19,10 +19,10 @@ import 'mock_api.dart';
   );
 
   return (
-    UncontrolledProviderScope(
+    app: UncontrolledProviderScope(
       container: container ?? providerContainer,
       child: const App(),
     ),
-    container ?? providerContainer,
+    container: container ?? providerContainer,
   );
 }

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '/components/home_app_bar.dart';
-import '/components/main_menu.dart';
 import '/ext/context_ext.dart';
 import '/service/common_providers.dart';
 import 'about_page.dart';
 import 'authors_page.dart';
 import 'gallery_page.dart';
+import 'main_menu_page.dart';
 import 'main_page.dart';
 import 'services_page.dart';
 
@@ -23,7 +23,7 @@ class HomePage extends HookConsumerWidget {
       drawer: Drawer(
         backgroundColor: context.scaffoldBgColor,
         width: context.screenSize.width,
-        child: const MainMenu(),
+        child: const MainMenuPage(),
       ),
       body: switch (tab) {
         HomeTab.main => const MainPage(),

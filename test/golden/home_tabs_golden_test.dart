@@ -11,7 +11,7 @@ void main() async {
 
   group('', () {
     testGoldens('Home page tabs', (tester) async {
-      final (app, container) = mockApp();
+      final (:app, :container) = mockApp();
 
       Future<void> showTab(HomeTab tab) async {
         container.setHomeTab(tab);
