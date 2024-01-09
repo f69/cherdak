@@ -1,6 +1,4 @@
-import 'package:cherdak/components/home_header.dart';
 import 'package:cherdak/pages/main_menu_page.dart';
-import 'package:cherdak/components/promo_ribbon.dart';
 import 'package:cherdak/pages/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

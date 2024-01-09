@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:styled_widget/styled_widget.dart';
 
 const appTitle = 'Cherdak Dalí';
 
@@ -30,10 +29,10 @@ const serviceTypes = {
   'leather': 'Изделия из кожи',
 };
 
-final workImageErrorWidget =
-    const Icon(Icons.brush_outlined, color: Colors.white12, size: 200)
-        .padding(top: 40);
+const workImageErrorWidget = Padding(
+    padding: EdgeInsets.only(top: 40),
+    child: Icon(Icons.brush_outlined, color: Colors.white12, size: 200));
 
-final avatarImageErrorWidget =
-    const Icon(Icons.person_2_sharp, color: Colors.white12, size: 200)
-        .padding(top: 40);
+const avatarImageErrorWidget = Padding(
+    padding: EdgeInsets.only(top: 40),
+    child: Icon(Icons.person_2_sharp, color: Colors.white12, size: 200));
