@@ -1,4 +1,3 @@
-import 'package:cherdak/service/common_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
@@ -11,6 +10,7 @@ import '/ext/widget_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/request_params.dart';
 import '/pages/filter_page.dart';
+import '/service/common_providers.dart';
 
 class FilterPanel extends HookConsumerWidget {
   const FilterPanel({
@@ -39,10 +39,8 @@ class FilterPanel extends HookConsumerWidget {
     void editFilter() async {
       ref.read(internalFilterProvider.notifier).state =
           filter ?? const RequestParams();
-      final newFilter = await context.pushMaterial((context) => FilterPage(
-            initialFilter: filter,
-            options: options,
-          ));
+      final newFilter =
+          await context.pushMaterial((_) => FilterPage(options: options));
 
       if (newFilter != null) {
         onFilter?.call(newFilter);
@@ -53,17 +51,13 @@ class FilterPanel extends HookConsumerWidget {
       if (sorting) ...[
         item(context.l10n.sorting, const Icon(Icons.keyboard_arrow_down))
             .padding(left: 20, right: 8)
-            .pressable(
-                onPressed: editSorting,
-                pressedBackgroundColor: AppColors.inactiveGrey.withOpacity(0.5))
+            .pressableGrey(onPressed: editSorting)
             .expanded(),
         const VerticalDivider(),
       ],
       item(context.l10n.filter, const Icon(Icons.tune, size: 16))
           .padding(left: 12, right: 20)
-          .pressable(
-              onPressed: editFilter,
-              pressedBackgroundColor: AppColors.inactiveGrey.withOpacity(0.5))
+          .pressableGrey(onPressed: editFilter)
           .expanded(),
     ]
         .toRow()
