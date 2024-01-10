@@ -8,7 +8,7 @@ part 'services_info.g.dart';
 
 @JsonSerializable()
 class ServicesInfo extends PagedDataInfo<ServiceInfo> {
-  ServicesInfo({
+  const ServicesInfo({
     required super.data,
     required super.meta,
   });

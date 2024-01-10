@@ -25,6 +25,7 @@ class UserWorksRibbon extends StatelessWidget {
 
     return WorksRibbon(
       userId: userId,
+      excludeWorkSlug: excludeWorkSlug,
       headerBuilder: (context, info, _) {
         final workCount = info?.meta.totalItems;
         final countText = workCount == null ? '' : '$workCount';

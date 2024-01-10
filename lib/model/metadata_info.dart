@@ -1,9 +1,22 @@
+import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'metadata_info.g.dart';
 
+@CopyWith()
 @JsonSerializable()
-class MetadataInfo {
+class MetadataInfo extends Equatable {
+  const MetadataInfo({
+    required this.totalItems,
+    required this.startItem,
+    required this.endItem,
+    required this.itemsPerPage,
+    required this.currentPage,
+    required this.lastPage,
+    required this.path,
+  });
+
   @JsonKey(name: 'total')
   final int totalItems;
 
@@ -20,15 +33,16 @@ class MetadataInfo {
   final int lastPage;
   final String path;
 
-  MetadataInfo({
-    required this.totalItems,
-    required this.startItem,
-    required this.endItem,
-    required this.itemsPerPage,
-    required this.currentPage,
-    required this.lastPage,
-    required this.path,
-  });
+  @override
+  List<Object?> get props => [
+        totalItems,
+        startItem,
+        endItem,
+        itemsPerPage,
+        currentPage,
+        lastPage,
+        path,
+      ];
 
   bool get allPagesFetched => currentPage == lastPage;
 

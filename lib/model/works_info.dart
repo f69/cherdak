@@ -1,3 +1,4 @@
+import 'package:copy_with_extension/copy_with_extension.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import 'metadata_info.dart';
@@ -6,9 +7,10 @@ import 'works_item.dart';
 
 part 'works_info.g.dart';
 
+@CopyWith()
 @JsonSerializable()
 class WorksInfo extends PagedDataInfo<WorksItem> {
-  WorksInfo({
+  const WorksInfo({
     required super.data,
     required super.meta,
   });

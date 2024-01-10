@@ -9,7 +9,7 @@ import 'package:cherdak/model/work_info.dart';
 import 'package:cherdak/model/work_short_info.dart';
 import 'package:cherdak/model/works_item.dart';
 
-final emptyMetadata = MetadataInfo(
+const emptyMetadata = MetadataInfo(
     totalItems: 0,
     startItem: null,
     endItem: null,

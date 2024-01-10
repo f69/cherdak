@@ -8,7 +8,7 @@ part 'users_info.g.dart';
 
 @JsonSerializable()
 class UsersInfo extends PagedDataInfo<UserInfo> {
-  UsersInfo({
+  const UsersInfo({
     required super.data,
     required super.meta,
   });

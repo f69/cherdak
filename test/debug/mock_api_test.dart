@@ -20,8 +20,8 @@ void main() {
     });
 
     test('returns works', () async {
-      when(() => client.getWorks(1, const RequestParams()))
-          .thenAnswer((_) async => WorksInfo(data: [], meta: emptyMetadata));
+      when(() => client.getWorks(1, const RequestParams())).thenAnswer(
+          (_) async => const WorksInfo(data: [], meta: emptyMetadata));
       final result = await client.getWorks(1, const RequestParams());
       printJson(result);
     });

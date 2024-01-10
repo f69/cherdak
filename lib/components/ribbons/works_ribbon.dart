@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
+import '../cards/work_card.dart';
+import '../misc/app_error_widget.dart';
 import '/app/app_colors.dart';
 import '/app/app_styles.dart';
-import '../misc/app_error_widget.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/request_params.dart';
 import '/model/works_info.dart';
 import '/service/work_providers.dart';
-import '../cards/work_card.dart';
 
 class WorksRibbon extends HookConsumerWidget {
   const WorksRibbon({
@@ -17,15 +17,18 @@ class WorksRibbon extends HookConsumerWidget {
     this.categoryId,
     this.userId,
     this.headerBuilder,
+    this.excludeWorkSlug,
   });
 
   final int? categoryId;
   final int? userId;
   final ValueWidgetBuilder<WorksInfo?>? headerBuilder;
+  final String? excludeWorkSlug;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final request = RequestParams(categoryId: categoryId, userId: userId);
+    final request = RequestParams(
+        categoryId: categoryId, userId: userId, excludeSlug: excludeWorkSlug);
     final dataProvider = worksProvider(request);
     final worksInfoAsync = ref.watch(dataProvider);
 

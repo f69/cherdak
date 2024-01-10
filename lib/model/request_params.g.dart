@@ -29,6 +29,8 @@ abstract class _$RequestParamsCWProxy {
 
   RequestParams serviceType(String? serviceType);
 
+  RequestParams excludeSlug(String? excludeSlug);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `RequestParams(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -47,6 +49,7 @@ abstract class _$RequestParamsCWProxy {
     String? searchString,
     String? countrySlug,
     String? serviceType,
+    String? excludeSlug,
   });
 }
 
@@ -95,6 +98,10 @@ class _$RequestParamsCWProxyImpl implements _$RequestParamsCWProxy {
       this(serviceType: serviceType);
 
   @override
+  RequestParams excludeSlug(String? excludeSlug) =>
+      this(excludeSlug: excludeSlug);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `RequestParams(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -114,6 +121,7 @@ class _$RequestParamsCWProxyImpl implements _$RequestParamsCWProxy {
     Object? searchString = const $CopyWithPlaceholder(),
     Object? countrySlug = const $CopyWithPlaceholder(),
     Object? serviceType = const $CopyWithPlaceholder(),
+    Object? excludeSlug = const $CopyWithPlaceholder(),
   }) {
     return RequestParams(
       categoryId: categoryId == const $CopyWithPlaceholder()
@@ -162,6 +170,10 @@ class _$RequestParamsCWProxyImpl implements _$RequestParamsCWProxy {
           ? _value.serviceType
           // ignore: cast_nullable_to_non_nullable
           : serviceType as String?,
+      excludeSlug: excludeSlug == const $CopyWithPlaceholder()
+          ? _value.excludeSlug
+          // ignore: cast_nullable_to_non_nullable
+          : excludeSlug as String?,
     );
   }
 }
@@ -189,6 +201,7 @@ RequestParams _$RequestParamsFromJson(Map<String, dynamic> json) =>
       searchString: json['search_string'] as String?,
       countrySlug: json['country_slug'] as String?,
       serviceType: json['type'] as String?,
+      excludeSlug: json['exclude_slug'] as String?,
     );
 
 Map<String, dynamic> _$RequestParamsToJson(RequestParams instance) =>
@@ -204,4 +217,5 @@ Map<String, dynamic> _$RequestParamsToJson(RequestParams instance) =>
       'search_string': instance.searchString,
       'country_slug': instance.countrySlug,
       'type': instance.serviceType,
+      'exclude_slug': instance.excludeSlug,
     };
