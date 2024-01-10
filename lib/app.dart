@@ -14,7 +14,8 @@ import '/pages/home_page.dart';
 import '/service/common_providers.dart';
 
 class App extends HookConsumerWidget {
-  const App({super.key});
+  const App({super.key, this.home});
+  final Widget? home;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -43,7 +44,7 @@ class App extends HookConsumerWidget {
           systemNavigationBarColor: AppColors.background,
           // systemNavigationBarIconBrightness: Brightness.dark,
         ),
-        child: const HomePage(),
+        child: home ?? const HomePage(),
       ),
     );
   }

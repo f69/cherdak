@@ -27,6 +27,6 @@ class MainMenu extends StatelessWidget {
             index: index, caption: e, scaffoldContext: scaffoldContext))
         .toList()
         .toColumnCrossStart(separator: 12.gap)
-        .textStyle(style: const TextStyle(color: AppColors.inactiveGrey));
+        .textStyle(color: AppColors.inactiveGrey);
   }
 }

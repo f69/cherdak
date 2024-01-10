@@ -77,10 +77,12 @@ extension StyledExt on Widget {
     TextOverflow? overflow,
     int? maxLines,
     TextWidthBasis? textWidthBasis,
+    // shorteners
+    Color? color,
   }) =>
       merge
           ? DefaultTextStyle.merge(
-              style: style,
+              style: style ?? (color != null ? TextStyle(color: color) : null),
               textAlign: textAlign,
               softWrap: softWrap,
               overflow: overflow,
@@ -89,7 +91,7 @@ extension StyledExt on Widget {
               child: this,
             )
           : DefaultTextStyle(
-              style: style ?? const TextStyle(),
+              style: style ?? TextStyle(color: color),
               textAlign: textAlign,
               softWrap: softWrap ?? true,
               overflow: overflow ?? TextOverflow.clip,
