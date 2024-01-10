@@ -3,7 +3,7 @@ import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_colors.dart';
 import '/app/app_styles.dart';
-import '/components/app_image.dart';
+import '../misc/app_image.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_ext.dart';

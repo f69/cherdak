@@ -4,11 +4,11 @@ import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_colors.dart';
 import '/app/app_const.dart';
-import '/components/category_paintings_ribbon.dart';
-import '/components/home_footer.dart';
-import '/components/home_header.dart';
-import '/components/promo_ribbon.dart';
-import '/components/text_stripe.dart';
+import '/components/misc/home_footer.dart';
+import '/components/misc/home_header.dart';
+import '/components/misc/text_stripe.dart';
+import '/components/ribbons/category_paintings_ribbon.dart';
+import '/components/ribbons/promo_ribbon.dart';
 import '/ext/num_ext.dart';
 import '/ext/widget_ext.dart';
 

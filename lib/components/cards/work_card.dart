@@ -3,7 +3,7 @@ import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_colors.dart';
 import '/app/app_styles.dart';
-import '/components/app_image.dart';
+import '../misc/app_image.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
@@ -11,7 +11,7 @@ import '/ext/widget_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/works_item.dart';
 import '/pages/work_page.dart';
-import 'work_stats_row.dart';
+import '../misc/work_stats_row.dart';
 
 class WorkCard extends StatelessWidget {
   const WorkCard({super.key, required this.info});

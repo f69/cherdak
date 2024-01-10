@@ -1,5 +1,5 @@
 import 'package:cherdak/app/app_colors.dart';
-import 'package:cherdak/components/main_menu_item.dart';
+import 'package:cherdak/components/menu/main_menu_item.dart';
 import 'package:cherdak/service/common_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

@@ -5,7 +5,7 @@ import '/app/app_const.dart';
 import '/app/app_styles.dart';
 import '/ext/context_ext.dart';
 import '/widgets/pixel_wrapped.dart';
-import 'more_about_button.dart';
+import '../buttons/more_about_button.dart';
 
 class HomeFooter extends StatelessWidget {
   const HomeFooter({super.key});

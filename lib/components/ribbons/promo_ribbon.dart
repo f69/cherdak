@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
+import '../cards/promo_card.dart';
 import '/app/app_const.dart';
 import '/app/app_styles.dart';
-import '/components/promo_card.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/service/common_providers.dart';

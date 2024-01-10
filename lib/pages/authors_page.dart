@@ -4,10 +4,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_styles.dart';
-import '/components/app_error_widget.dart';
-import '/components/filter_panel.dart';
-import '/components/filter_text.dart';
-import '/components/user_card.dart';
+import '/components/cards/user_card.dart';
+import '/components/misc/app_error_widget.dart';
+import '/components/misc/filter_panel.dart';
+import '/components/misc/filter_text.dart';
 import '/ext/context_ext.dart';
 import '/ext/num_ext.dart';
 import '/ext/widget_list_ext.dart';

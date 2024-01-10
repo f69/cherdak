@@ -4,12 +4,12 @@ import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_colors.dart';
 import '/app/app_styles.dart';
-import '/components/app_image.dart';
-import '/components/base_app_bar.dart';
-import '/components/user_name_header.dart';
-import '/components/user_social_panel.dart';
-import '/components/user_works_ribbon.dart';
-import '/components/value_line.dart';
+import '/components/misc/app_image.dart';
+import '/components/misc/base_app_bar.dart';
+import '/components/misc/user_name_header.dart';
+import '/components/misc/user_social_panel.dart';
+import '/components/misc/value_line.dart';
+import '/components/ribbons/user_works_ribbon.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
 import '/ext/widget_ext.dart';

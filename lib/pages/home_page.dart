@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '/components/home_app_bar.dart';
+import '/components/misc/home_app_bar.dart';
 import '/ext/context_ext.dart';
 import '/service/common_providers.dart';
 import 'about_page.dart';

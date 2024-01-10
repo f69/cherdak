@@ -4,12 +4,12 @@ import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_colors.dart';
 import '/app/app_styles.dart';
-import '/components/app_error_widget.dart';
+import '../misc/app_error_widget.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/request_params.dart';
 import '/model/works_info.dart';
 import '/service/work_providers.dart';
-import 'work_card.dart';
+import '../cards/work_card.dart';
 
 class WorksRibbon extends HookConsumerWidget {
   const WorksRibbon({
