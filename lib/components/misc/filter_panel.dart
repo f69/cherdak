@@ -1,4 +1,6 @@
+import 'package:cherdak/service/common_providers.dart';
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_colors.dart';
@@ -10,7 +12,7 @@ import '/ext/widget_list_ext.dart';
 import '/model/request_params.dart';
 import '/pages/filter_page.dart';
 
-class FilterPanel extends StatelessWidget {
+class FilterPanel extends HookConsumerWidget {
   const FilterPanel({
     super.key,
     this.sorting = false,
@@ -25,7 +27,7 @@ class FilterPanel extends StatelessWidget {
   final Set<FilterOption> options;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     Widget item(String text, Icon icon) => [
           text.text2SemiBold.textColor(AppColors.beige),
           if (sorting) const Spacer(),
@@ -35,6 +37,8 @@ class FilterPanel extends StatelessWidget {
     void editSorting() {}
 
     void editFilter() async {
+      ref.read(internalFilterProvider.notifier).state =
+          filter ?? const RequestParams();
       final newFilter = await context.pushMaterial((context) => FilterPage(
             initialFilter: filter,
             options: options,
