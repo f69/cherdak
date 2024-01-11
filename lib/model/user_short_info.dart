@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '/ext/context_ext.dart';
 
 part 'user_short_info.g.dart';
 
@@ -28,4 +31,9 @@ class UserShortInfo {
       _$UserShortInfoFromJson(json);
 
   Map<String, dynamic> toJson() => _$UserShortInfoToJson(this);
+
+  String? getPlace(BuildContext context) => switch (context.lang) {
+        'ru' => place,
+        _ => placeEn ?? place,
+      };
 }

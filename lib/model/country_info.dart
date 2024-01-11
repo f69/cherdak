@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '/ext/context_ext.dart';
 
 part 'country_info.g.dart';
 
@@ -22,6 +25,12 @@ class CountryInfo {
       _$CountryInfoFromJson(json);
 
   Map<String, dynamic> toJson() => _$CountryInfoToJson(this);
+
+  String getTitle(BuildContext context) => switch (context.lang) {
+        'ru' => title,
+        'be' => titleBel,
+        _ => titleEng,
+      };
 }
 
 @JsonSerializable()

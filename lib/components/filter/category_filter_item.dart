@@ -15,6 +15,7 @@ class CategoryFilterItem extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final filter = ref.watch(internalFilterProvider);
+    final categories = getCategories(context);
 
     void selectCategory() async {
       final selectedValue = await context.pushMaterial((_) => FilterValuePage(
@@ -28,7 +29,7 @@ class CategoryFilterItem extends HookConsumerWidget {
             ?.key;
 
         ref.watch(internalFilterProvider.notifier).update(
-                (state) => state.copyWith(categoryId: selectedCategoryId ?? 1));
+            (state) => state.copyWith(categoryId: selectedCategoryId ?? 1));
       }
     }
 
@@ -38,4 +39,3 @@ class CategoryFilterItem extends HookConsumerWidget {
         onPressed: selectCategory);
   }
 }
-

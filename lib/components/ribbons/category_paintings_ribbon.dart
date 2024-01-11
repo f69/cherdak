@@ -17,6 +17,7 @@ class CategoryPaintingsRibbon extends StatelessWidget {
     return WorksRibbon(
       categoryId: categoryId,
       headerBuilder: (context, info, _) {
+        final categories = getCategories(context);
         final categoryName = categories[categoryId] ?? '';
         final workCount = info?.meta.totalItems;
         final countText =

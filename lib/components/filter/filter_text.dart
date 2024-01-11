@@ -29,12 +29,17 @@ class FilterText extends HookConsumerWidget {
 
     final result = <Widget>[];
 
+    final categories = getCategories(context);
+    final serviceTypes = getServiceTypes(context);
+
     final categoryName = categories[categoryId];
     final serviceName = serviceTypes[filter.serviceType];
-    final genreName =
-        genresList?.firstWhereOrNull((e) => e.id == filter.genreId)?.title;
-    final countryName =
-        countriesList?.firstWhereOrNull((e) => e.id == filter.countryId)?.title;
+    final genreName = genresList
+        ?.firstWhereOrNull((e) => e.id == filter.genreId)
+        ?.getTitle(context);
+    final countryName = countriesList
+        ?.firstWhereOrNull((e) => e.id == filter.countryId)
+        ?.getTitle(context);
 
     void addOption(String caption, String? value) {
       if (value != null) {

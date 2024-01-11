@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import '/ext/context_ext.dart';
 import 'category.dart';
 
 part 'genre_info.g.dart';
@@ -28,6 +30,12 @@ class GenreInfo {
       _$GenreInfoFromJson(json);
 
   Map<String, dynamic> toJson() => _$GenreInfoToJson(this);
+
+  String getTitle(BuildContext context) => switch (context.lang) {
+        'ru' => title,
+        'be' => titleBel,
+        _ => titleEng,
+      };
 }
 
 @JsonSerializable()

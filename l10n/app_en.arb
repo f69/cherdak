@@ -73,5 +73,19 @@
   "moreAboutUs": "More about us",
   "implementationHeader": "product implementation",
   "implementationText": "From the idea to the implementation of the first version of the product it took 2-3 weeks. The popularity of the project quickly grew: “In a week, 50 authors registered 250 works. The project first appeared on the Internet in 2016.\n\nDali's Attic took part in competitions: My Business from ONT, BizTech BSU StartUp, 76th Startup Battle from startup.network, and Investor Day from Startup School We also introduced the project to art galleries, museums and art spaces that still support us. We were especially pleasantly greeted at BGAI, because many of the users are current, past or future students.",
-  "implementationText2": "* This was perhaps our best decision, since by presenting the project to the public we received a huge amount of feedback, comments, and suggestions from talented entrepreneurs, specialists and professionals."
+  "implementationText2": "* This was perhaps our best decision, since by presenting the project to the public we received a huge amount of feedback, comments, and suggestions from talented entrepreneurs, specialists and professionals.",
+  "painting": "Painting",
+  "graphics": "Graphics",
+  "handMade": "HandMade",
+  "sketch": "Sketch",
+  "sculpture": "Sculpture",
+  "portrait": "Portrait to order",
+  "paint": "Painting to order",
+  "wall_painting": "Wall painting",
+  "picture_from_photo": "Painting from a photograph",
+  "statue": "Custom statue",
+  "handmade_toys": "Handmade toys",
+  "handmade_souvenirs": "Handmade souvenirs",
+  "forging": "Forging to order",
+  "leather": "Leather products"
 }

@@ -18,24 +18,26 @@ class GenreFilterItem extends HookConsumerWidget {
     final genresList =
         ref.watch(genresProvider(filter.categoryId ?? 1)).valueOrNull;
 
-    String? getGenreName() =>
-        genresList?.firstWhereOrNull((e) => e.id == filter.genreId)?.title;
+    String? getGenreName() => genresList
+        ?.firstWhereOrNull((e) => e.id == filter.genreId)
+        ?.getTitle(context);
 
     void selectGenre() async {
       final selectedName = await context.pushMaterial((_) => FilterValuePage(
           caption: context.l10n.genre,
           values: [
             context.l10n.all,
-            ...((genresList ?? []).map((e) => e.title))
+            ...((genresList ?? []).map((e) => e.getTitle(context)))
           ],
           selectedValue: genresList
                   ?.firstWhereOrNull((e) => e.id == filter.genreId)
-                  ?.title ??
+                  ?.getTitle(context) ??
               context.l10n.all));
 
       if (selectedName != null) {
-        final selectedGenreId =
-            genresList?.firstWhereOrNull((e) => e.title == selectedName)?.id;
+        final selectedGenreId = genresList
+            ?.firstWhereOrNull((e) => e.getTitle(context) == selectedName)
+            ?.id;
 
         ref
             .watch(internalFilterProvider.notifier)

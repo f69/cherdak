@@ -17,25 +17,26 @@ class CountryFilterItem extends HookConsumerWidget {
     final filter = ref.watch(internalFilterProvider);
     final countriesList = ref.watch(countriesProvider).valueOrNull;
 
-    String? getCountryName() =>
-        countriesList?.firstWhereOrNull((e) => e.id == filter.countryId)?.title;
+    String? getCountryName() => countriesList
+        ?.firstWhereOrNull((e) => e.id == filter.countryId)
+        ?.getTitle(context);
 
     void selectCountry() async {
       final selectedName = await context.pushMaterial((_) => FilterValuePage(
           caption: context.l10n.country,
           values: [
             context.l10n.all,
-            ...(countriesList?.map((e) => e.title) ?? [])
+            ...(countriesList?.map((e) => e.getTitle(context)) ?? [])
           ],
           selectedValue: filter.countryId == null
               ? context.l10n.all
               : countriesList
                   ?.firstWhereOrNull((e) => e.id == filter.countryId)
-                  ?.title));
+                  ?.getTitle(context)));
 
       if (selectedName != null) {
-        final selectedCountry =
-            countriesList?.firstWhereOrNull((e) => e.title == selectedName);
+        final selectedCountry = countriesList
+            ?.firstWhereOrNull((e) => e.getTitle(context) == selectedName);
 
         ref.watch(internalFilterProvider.notifier).update((state) =>
             state.copyWith(

@@ -15,6 +15,7 @@ class ServiceFilterItem extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final filter = ref.watch(internalFilterProvider);
+    final serviceTypes = getServiceTypes(context);
 
     String? getServiceName() => serviceTypes[filter.serviceType];
 
