@@ -30,7 +30,7 @@
   "place2": "Place:",
   "authorWorks": "Author works",
   "authorOtherWorks": "Author other works",
-  "artGalleryIntro": "Просмотривайте тысячи оригинальных работ от художников и мастеров со всего мира и покупайте произведения, которые будут вдохновлять вас каждый день!",
+  "artGalleryIntro": "Browse thousands of original works from artists and craftsmen from around the world and buy pieces that will inspire you every day!",
   "found": "Found",
   "sorting": "Sorting",
   "filter": "Filter",
@@ -43,35 +43,35 @@
       "count": {}
     }
   },
-  "authorsPageIntro": "Откройте для себя новых художников вместе с Cherdak Dalí уже сегодня! Посещайте страницы перспективных и признанных мастеров, а также начинающих художников, которым есть что сказать этому миру.",
+  "authorsPageIntro": "Discover new artists with Cherdak Dalí today! Visit the pages of promising and established artists, as well as emerging artists who have something to say to this world.",
   "rating": "Rating:",
   "phone": "Tel:",
   "email": "Email:",
   "aboutAuthor": "About author:",
   "favorite": "To favorite",
   "share": "Share",
-  "servicePageIntro": "Просмотривайте примеры работ авторов на странице выбранной услуги и заказывайте роспись стен, скульптуру, свой портрет или копию полотен известных мастеров. ",
+  "servicePageIntro": "View examples of the authors' works on the page of the selected service and order wall painting, sculpture, your portrait or a copy of paintings by famous masters.",
   "servicesCount": "{count} services",
   "@servicesCount": {
     "placeholders": {
       "count": {}
     }
   },
-  "aboutPageIntro": "Чердак Дали - это белорусский проект, который разработан командой ilavista в 2016 году. Платформа дает возможность художникам размещать свои работы бесплатно.",
-  "ideaHeader": "Как зародилась идея?",
-  "ideaText": "Идея проекта возникла неожиданно. Артем и Валерьян (основатели компании ilavista, программист и маркетолог соответственно) гуляли по Минску и зашли на выставку на Октябрьской улице — увидели цены работ и немного удивились.\n\nРешили поискать стоимость в интернете. Достойных площадок не обнаружилось. Были лишь интернет-магазины по продажи напечатанных картин, союз художников, либо группы в социальных сетях. Возник вопрос, где искать талантливых, но ещё не знаменитых ребят, готовых зарабатывать на своём творчестве?",
+  "aboutPageIntro": "Dali's Attic is a Belarusian project that was developed by the ilavista team in 2016. The platform allows artists to post their works for free.",
+  "ideaHeader": "How did the idea come about?",
+  "ideaText": "The idea for the project arose unexpectedly. Artem and Valeryan (founders of the ilavista company, programmer and marketer, respectively) were walking around Minsk and went to an exhibition on Oktyabrskaya Street - they saw the prices of the works and were a little surprised.\n\nWe decided to look for the cost on the Internet. No worthy platforms were found. There were only online stores selling printed paintings, a union of artists, or groups on social networks. The question arose, where to look for talented but not yet famous guys who are ready to make money from their creativity?",
   "serviceType": "Service type",
   "onlineGallery":"Online gallery",
-  "galleryPromo": "Переходите в онлайн галерею и получайте ежедневную порцию вдохновения!",
+  "galleryPromo": "Go to the online gallery and get a daily dose of inspiration!",
   "gotoGallery": "Go to gallery",
   "sellWith": "Sell with",
-  "sellPromo": "Регистрируйтесь и размещайте ваши картины  и услуги абсолтюно бесплатно.",
+  "sellPromo": "Register and post your paintings and services absolutely free.",
   "doRegister": "register",
-  "cherdakMain": "Cherdak Dalí — ваш проводник в мире искусства. Мы используем сочетание технологий и традиционных знаний, чтобы помочь тем, кто ищет искусство для любого помещения.\n\nЕсли вы просто интересуетесь искусством или являетесь опытным коллекционером, мы здесь, чтобы пролить свет на самых интересных, талантливых и культурно значимых художников нашего времени.",
+  "cherdakMain": "Cherdak Dalí is your guide to the world of art. We use a combination of technology and traditional knowledge to help those looking for art for any space.\n\nWhether you are simply interested in art or are a seasoned collector, we are here to shine a light on the most exciting, talented and culturally significant artists of our time.",
   "inspirational": "inspirational",
   "art": "art",
   "moreAboutUs": "More about us",
   "implementationHeader": "product implementation",
-  "implementationText": "От идеи до реализации первой версии продукта было 2-3 недели. Популярность проекта быстро выросла: «За неделю 50 авторов зарегистрировали 250 работ. Проект впервые появился на просторах интернета в 2016 году.\n\nЧердак Дали принимал участие в конкурсах: Мой бизнес от ОНТ, BizTech BSU StartUp, 76-ая битва стартапов от startup.network, и день инвестора от Стартап-школы. Также мы познакомили с проектом художественные галерей, музей и АРТ-пространства, которые до сих пор поддерживают нас. Особенно приятно нас встретили в БГАИ, ведь многие пользователи нынешние, прошлые или будущие их студенты.",
-  "implementationText2": "* Это было, пожалуй, лучшее наше решение, так как представив проект на общественное обозрение получили огромное количество отзывов, замечаний, предложений от талантливых предпринимателей, специалистов и профессионалов."
+  "implementationText": "From the idea to the implementation of the first version of the product it took 2-3 weeks. The popularity of the project quickly grew: “In a week, 50 authors registered 250 works. The project first appeared on the Internet in 2016.\n\nDali's Attic took part in competitions: My Business from ONT, BizTech BSU StartUp, 76th Startup Battle from startup.network, and Investor Day from Startup School We also introduced the project to art galleries, museums and art spaces that still support us. We were especially pleasantly greeted at BGAI, because many of the users are current, past or future students.",
+  "implementationText2": "* This was perhaps our best decision, since by presenting the project to the public we received a huge amount of feedback, comments, and suggestions from talented entrepreneurs, specialists and professionals."
 }
