@@ -1,6 +1,7 @@
 import 'package:cherdak/app.dart';
 import 'package:cherdak/components/cards/work_card.dart';
 import 'package:cherdak/components/menu/main_menu_item.dart';
+import 'package:cherdak/service/common_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
@@ -16,7 +17,9 @@ void main() async {
     testGoldens('produces screenshots for README.md', (tester) async {
       await tester.pumpWidgetGoldenAndWait(
           surfaceSize: const Size(400, 800),
-          widget: const ProviderScope(child: App()));
+          widget: ProviderScope(
+              overrides: [langProvider.overrideWith((ref) => 'en')],
+              child: const App()));
       await tester.pumpAndSettle();
       await tester.runAsync(() => tester.waitAndPump());
 
