@@ -1,16 +1,12 @@
-# cherdak
+# Cherdak Dalí
 
-Cherdak Dali
+Mobile app prototype for site **[Cherdak Dalí](https://cherdak.org)**
 
-## Getting Started
+Design is based on [Figma project](https://www.figma.com/file/XZZYEpV6jcpCI0gJNt2OG9/cherdak.org-(Copy)?node-id=735%3A14857&t=sHtcNoHSLLxeKWL2-1) found on [message page](https://cherdak.org/support_the_project) of site.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+  <img src="test/golden/goldens/readme/screenshot1.png" alt="drawing" width="230px" hspace="30"/>
+  <img src="test/golden/goldens/readme/screenshot2.png" alt="drawing" width="230px" hspace="30"/>
+  <img src="test/golden/goldens/readme/screenshot3.png" alt="drawing" width="230px" hspace="30"/>
+  <img src="test/golden/goldens/readme/screenshot4.png" alt="drawing" width="230px"/>
+</p>
