@@ -11,12 +11,12 @@ import '/service/common_providers.dart';
 class MainMenuItem extends HookConsumerWidget {
   const MainMenuItem({
     super.key,
-    required this.index,
+    required this.itemTab,
     required this.caption,
     this.scaffoldContext,
   });
 
-  final int index;
+  final HomeTab itemTab;
   final String caption;
   final BuildContext? scaffoldContext;
 
@@ -25,12 +25,12 @@ class MainMenuItem extends HookConsumerWidget {
     final homeTab = ref.watch(homeTabProvider);
 
     void setTab() {
-      ref.setHomeTab(HomeTab.values[index]);
+      ref.setHomeTab(itemTab);
       (scaffoldContext ?? context).scaffold.closeDrawer();
     }
 
     return caption.h1
-        .textColor(index == homeTab.index ? AppColors.textWhite : null)
+        .textColor(itemTab == homeTab ? AppColors.textWhite : null)
         .pressable(onPressed: setTab);
   }
 }

@@ -9,8 +9,9 @@ import '../../../mocks/mock_app.dart';
 void main() {
   group('Main menu item', () {
     testWidgets('has light text color if selected', (tester) async {
-      await tester.pumpWidget(
-          mockApp(home: const MainMenuItem(index: 0, caption: 'test')).app);
+      await tester.pumpWidget(mockApp(
+        home: const MainMenuItem(itemTab: HomeTab.main, caption: 'test'),
+      ).app);
       await tester.pumpAndSettle();
       expect(find.byType(MainMenuItem), findsOneWidget);
 
@@ -20,8 +21,9 @@ void main() {
     });
 
     testWidgets('has default text color if not selected', (tester) async {
-      await tester.pumpWidget(
-          mockApp(home: const MainMenuItem(index: 1, caption: 'test')).app);
+      await tester.pumpWidget(mockApp(
+        home: const MainMenuItem(itemTab: HomeTab.gallery, caption: 'test'),
+      ).app);
       await tester.pumpAndSettle();
       expect(find.byType(MainMenuItem), findsOneWidget);
 
@@ -33,7 +35,7 @@ void main() {
     testWidgets('sets home tab on tap', (tester) async {
       final (:app, :container) = mockApp(
         home: const Scaffold(
-          body: MainMenuItem(index: 1, caption: 'test'),
+          body: MainMenuItem(itemTab: HomeTab.gallery, caption: 'test'),
         ),
       );
       await tester.pumpWidget(app);
