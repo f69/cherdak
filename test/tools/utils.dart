@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:cherdak/components/menu/main_menu_item.dart';
+import 'package:cherdak/service/common_providers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,6 +11,39 @@ import '../flutter_test_config.dart';
 
 void printJson(Object? object) {
   debugPrint(const JsonEncoder.withIndent('  ').convert(object));
+}
+
+extension AppTestExt on WidgetTester {
+  Future<void> showMainMenu() async {
+    final menuButton = find.byIcon(Icons.menu);
+    await tap(menuButton);
+    await pumpAndSettle();
+  }
+
+  Future<void> selectHomeTab(HomeTab tab) async {
+    await showMainMenu();
+    final menuItems = find.byType(MainMenuItem);
+    await tap(menuItems.at(tab.index));
+    await pumpAndSettle();
+  }
+
+  Future<void> showFilterPage() async {
+    final filterButton = find.byIcon(Icons.tune);
+    await tap(filterButton);
+    await pumpAndSettle();
+  }
+
+  Future<void> closePage() async {
+    final closeButton = find.byIcon(Icons.close);
+    await tap(closeButton);
+    await pumpAndSettle();
+  }
+
+  Future<void> backPage() async {
+    final backButton = find.byIcon(Icons.arrow_back);
+    await tap(backButton);
+    await pumpAndSettle();
+  }
 }
 
 extension WidgetTesterExtension on WidgetTester {
