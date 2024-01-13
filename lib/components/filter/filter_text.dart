@@ -55,14 +55,12 @@ class FilterText extends HookConsumerWidget {
     addOption(context.l10n.country, countryName);
     addOption(context.l10n.serviceType, serviceName);
 
+    final separator = ' – '.text2.textColor(AppColors.inactiveGrey);
     return result.isEmpty
         ? const SizedBox.shrink()
         : Wrap(
             direction: Axis.horizontal,
-            children: result
-                .expand(
-                    (e) => [e, ' – '.text2.textColor(AppColors.inactiveGrey)])
-                .toList()
+            children: result.expand((e) => [e, separator]).toList()
               ..removeLast());
   }
 }

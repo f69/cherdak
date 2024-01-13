@@ -1,5 +1,7 @@
 import 'package:cherdak/model/category.dart';
+import 'package:cherdak/model/country_info.dart';
 import 'package:cherdak/model/genre.dart';
+import 'package:cherdak/model/genre_info.dart';
 import 'package:cherdak/model/metadata_info.dart';
 import 'package:cherdak/model/service.dart';
 import 'package:cherdak/model/service_info.dart';
@@ -105,4 +107,24 @@ const mockService = ServiceInfo(
       slug: 'service',
     )
   ],
+);
+
+final mockCountryInfo = CountryInfo.fromJson({
+  "id": 1,
+  "title": "Беларусь",
+  "title_eng": "Belarus",
+  "title_bel": "Belarus",
+  "slug": "belarus"
+});
+
+final mockGenreInfo = GenreInfo.fromJson(
+  {
+    "id": 1,
+    "title": "Натюрморт",
+    "title_eng": "Still life",
+    "title_bel": "Натюрморт",
+    "slug": "still_life",
+    "category": {"title": "Живопись", "slug": "painting"},
+    "description": null
+  },
 );

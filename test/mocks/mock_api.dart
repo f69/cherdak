@@ -1,3 +1,5 @@
+import 'package:cherdak/model/country_info.dart';
+import 'package:cherdak/model/genre_info.dart';
 import 'package:cherdak/model/request_params.dart';
 import 'package:cherdak/model/services_info.dart';
 import 'package:cherdak/model/users_info.dart';
@@ -19,8 +21,14 @@ MockApiClient getMockApiClient() {
   when(() => mockClient.getWorks(1, any())).thenAnswer(
       (_) async => WorksInfo(data: [mockWorksItem], meta: simpleMetadata(1)));
 
-  when(() => mockClient.getServices(1, any())).thenAnswer(
-      (_) async => ServicesInfo(data: const [mockService], meta: simpleMetadata(1)));
+  when(() => mockClient.getServices(1, any())).thenAnswer((_) async =>
+      ServicesInfo(data: const [mockService], meta: simpleMetadata(1)));
+
+  when(() => mockClient.getCountries())
+      .thenAnswer((_) async => CountryInfoResponse(data: [mockCountryInfo]));
+
+  when(() => mockClient.getGenres(any()))
+      .thenAnswer((_) async => GenreInfoResponse(data: [mockGenreInfo]));
 
   return mockClient;
 }

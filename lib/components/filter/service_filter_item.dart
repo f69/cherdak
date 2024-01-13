@@ -20,13 +20,14 @@ class ServiceFilterItem extends HookConsumerWidget {
     String? getServiceName() => serviceTypes[filter.serviceType];
 
     void selectService() async {
+      final selectedType = serviceTypes[filter.serviceType];
       final selectedName = await context.pushMaterial((_) => FilterValuePage(
           caption: context.l10n.serviceType,
           values: [
             context.l10n.all,
             ...serviceTypes.values,
           ],
-          selectedValue: serviceTypes[filter.serviceType]));
+          selectedValue: selectedType ?? context.l10n.all));
 
       if (selectedName != null) {
         final selectedServiceType = serviceTypes.entries
