@@ -1,9 +1,11 @@
 # Cherdak Dalí
 
-Mobile app **prototype** for site **[Cherdak Dalí](https://cherdak.org)** build with 
+Mobile application **prototype** for site **[Cherdak Dalí](https://cherdak.org)** built with 
 [Flutter](https://flutter.dev)
 
-Design is based on [Figma project](https://www.figma.com/file/XZZYEpV6jcpCI0gJNt2OG9/cherdak.org-(Copy)?node-id=735%3A14857&t=sHtcNoHSLLxeKWL2-1) found on [message page](https://cherdak.org/support_the_project) of the site.
+The design is based on 
+[Figma project](https://www.figma.com/file/XZZYEpV6jcpCI0gJNt2OG9/cherdak.org-(Copy)?node-id=735%3A14857&t=sHtcNoHSLLxeKWL2-1) 
+found on [message page](https://cherdak.org/support_the_project) of the site.
 
 <br/>
 <p align="center">
@@ -13,13 +15,13 @@ Design is based on [Figma project](https://www.figma.com/file/XZZYEpV6jcpCI0gJNt
 </p>
 <br/>
 
-This project widely uses Dart extensions to make code shorter and prettier. 
+This project widely uses Dart language extensions to make code shorter and prettier. 
 
-Project uses this awesome Flutter packages:
+The project uses these awesome Flutter packages:
 - [riverpod](https://pub.dev/packages/riverpod) 
   for state management and dependency injection;
-- [retrofit](https://pub.dev/packages/retrofit) 
-  to get data through using site's API;
+- [retrofit](https://pub.dev/packages/retrofit)
+  to receive data via the site API;
 - [flutter_hooks](https://pub.dev/packages/flutter_hooks)
   to reduce boilerplate code;
 - [styled_widget](https://pub.dev/packages/styled_widget) 
