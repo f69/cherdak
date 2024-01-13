@@ -16,41 +16,41 @@ dependencies:
     git:
       url: https://github.com/f69/easy_image_viewer.git
       ref: 7bf7497b
+  cached_network_image: ^3.3.0
+  collection: ^1.18.0
+  copy_with_extension: ^5.0.4
   cupertino_icons: ^1.0.2
-  styled_widget: ^0.4.1
-  hooks_riverpod: ^2.4.9
   dio: ^5.4.0
+  equatable: ^2.0.5
+  fleasy: ^0.15.1
   flutter_hooks: ^0.20.3
+  font_awesome_flutter: ^10.6.0
+  freezed_annotation: ^2.4.1
+  hooks_riverpod: ^2.4.9
   json_annotation: ^4.8.1
   retrofit: ^4.0.3
   riverpod_annotation: ^2.3.3
-  cached_network_image: ^3.3.0
-  freezed_annotation: ^2.4.1
-  equatable: ^2.0.5
-  collection: ^1.18.0
-  copy_with_extension: ^5.0.4
-  font_awesome_flutter: ^10.6.0
+  styled_widget: ^0.4.1
   url_launcher: ^6.2.2
-  fleasy: ^0.15.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  build_runner: ^2.4.7
+  copy_with_extension_gen: ^5.0.4
   flutter_launcher_icons: ^0.13.1
   flutter_native_splash: ^2.3.8
+  freezed: ^2.4.6
+  golden_toolkit: ^0.15.0
+  json_serializable: ^6.7.1
+  mocktail: ^1.0.2
+  path_provider_platform_interface: ^2.1.1
+  plugin_platform_interface: ^2.1.8
   retrofit_generator: ^8.0.6
   riverpod_generator: ^2.3.9
-  build_runner: ^2.4.7
-  json_serializable: ^6.7.1
-  freezed: ^2.4.6
-  copy_with_extension_gen: ^5.0.4
-  mocktail: ^1.0.2
-  golden_toolkit: ^0.15.0
-  path_provider_platform_interface: ^2.1.1
-  sqflite_common_ffi: ^2.3.1
   sqflite: ^2.3.0
-  plugin_platform_interface: ^2.1.8
+  sqflite_common_ffi: ^2.3.1
 
 # dart run flutter_launcher_icons
 flutter_launcher_icons:
