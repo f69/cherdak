@@ -1,12 +1,11 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
 
 import '/app/app_colors.dart';
-import '/app/app_const.dart';
 import '/app/app_styles.dart';
+import '/components/misc/app_image.dart';
 import '/ext/app_ext.dart';
 import '/ext/widget_ext.dart';
 import '/ext/widget_list_ext.dart';
@@ -27,22 +26,15 @@ class ServiceCard extends HookConsumerWidget {
     void showServicePage() {}
 
     return [
-      CachedNetworkImage(
-        imageUrl: '$avatarsBase/${info.image}',
-        errorWidget: (context, _, __) => avatarImageErrorWidget,
-        alignment: Alignment.center,
-        fit: BoxFit.cover,
-      ).aspectRatio(aspectRatio: 443 / 320),
+      AppImage.user(imageUrl: info.image, fit: BoxFit.cover)
+          .aspectRatio(aspectRatio: 443 / 320),
       [
         service.title.text2Bold,
         info.place.text3.textColor(AppColors.textLightGrey),
         info.name.text2Bold.padding(top: 10),
         if (service.description != null)
-          Text(
-            service.description!,
-            style: AppStyles.text2,
-            maxLines: 4,
-          ).padding(top: 10),
+          Text(service.description!, style: AppStyles.text2, maxLines: 4)
+              .padding(top: 10),
       ]
           .toColumnCrossStart()
           .padding(top: 12, bottom: 16, horizontal: 8)

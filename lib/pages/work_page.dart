@@ -14,6 +14,7 @@ import '/components/misc/work_stats_row.dart';
 import '/components/ribbons/user_works_ribbon.dart';
 import '/ext/app_ext.dart';
 import '/ext/context_ext.dart';
+import '/ext/num_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/works_item.dart';
 import '/service/work_providers.dart';
@@ -56,14 +57,13 @@ class WorkPage extends HookConsumerWidget {
           WorkStatsRow(info: info.work)
               .border(all: 1, color: AppColors.lightGrey),
           const Divider().padding(top: 20, bottom: 16),
-          CachedNetworkImage(
-            imageUrl: imageUrl,
-            fit: BoxFit.contain,
-          ).aspectRatio(aspectRatio: 1).gestures(onTap: showWork),
+          CachedNetworkImage(imageUrl: imageUrl, fit: BoxFit.contain)
+              .aspectRatio(aspectRatio: 1)
+              .gestures(onTap: showWork),
           [
             AppButton(onPressed: () {}, child: Text(context.l10n.askPrice))
                 .expanded(),
-            const SizedBox(width: 16),
+            16.gap,
             AppButton(
                     onPressed: () {},
                     filled: true,
@@ -72,6 +72,7 @@ class WorkPage extends HookConsumerWidget {
           ].toRow().padding(top: 12),
           const Divider().padding(top: 40, bottom: 36),
           context.l10n.workParams.h3.padding(bottom: 20),
+          //
           SimpleGrid(
             columns: 2,
             verticalSpacing: 16,
@@ -89,6 +90,7 @@ class WorkPage extends HookConsumerWidget {
           context.l10n.workDescription.h3.padding(bottom: 20),
           if (workInfo != null) workInfo.description.text2SemiBold,
           const Divider().padding(top: 40, bottom: 36),
+          //
           UserNameHeader(name: info.user.name).padding(bottom: 16),
           if (info.user.shortDescription != null)
             info.user.shortDescription!.text1SemiBold,

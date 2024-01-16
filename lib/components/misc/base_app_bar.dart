@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:styled_widget/styled_widget.dart';
 
-import '/app/app_colors.dart';
 import '/app/app_const.dart';
+import '/ext/num_ext.dart';
 
 class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   const BaseAppBar({
@@ -26,16 +26,12 @@ class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
       AppBar(
         leading: leading,
         title: title ?? const Text(appTitle),
-        actions: [...(actions ?? []), const SizedBox(width: 8)],
+        actions: [...(actions ?? []), 8.gap],
         centerTitle: centerTitle,
         automaticallyImplyLeading: automaticallyImplyLeading,
       ).padding(top: 4),
-      const Divider(
-        height: 1,
-        color: AppColors.lightGrey,
-        indent: 20,
-        endIndent: 20,
-      ).alignment(Alignment.bottomCenter),
+      const Divider(height: 1, indent: 20, endIndent: 20)
+          .alignment(Alignment.bottomCenter),
     ].toStack();
   }
 
