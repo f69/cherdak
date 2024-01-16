@@ -29,8 +29,8 @@ class MainMenuItem extends HookConsumerWidget {
       (scaffoldContext ?? context).scaffold.closeDrawer();
     }
 
-    return caption.h1
-        .textColor(itemTab == homeTab ? AppColors.textWhite : null)
-        .pressable(onPressed: setTab);
+    return [
+      caption.h1.textColor(itemTab == homeTab ? AppColors.textWhite : null)
+    ].toRow().pressable(onPressed: setTab);
   }
 }
