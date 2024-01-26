@@ -36,3 +36,9 @@ The project uses these awesome Flutter packages:
   to reduce boilerplate code;
 - [styled_widget](https://pub.dev/packages/styled_widget) 
   to get nice and readable widget tree code.
+
+## Download
+
+You can download installation APK file for Android from Github
+
+[<img src="assets/dev/get-it-on-github.png" alt='Get it on GitHub' height="80">](https://github.com/f69/cherdak/releases/latest)
