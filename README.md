@@ -1,7 +1,7 @@
 <div align="center">
 
-![GitHub Release](https://img.shields.io/github/v/release/f69/cherdak)
-![Codecov](https://img.shields.io/codecov/c/github/f69/cherdak)
+[![GitHub Release](https://img.shields.io/github/v/release/f69/cherdak)](https://github.com/f69/cherdak/releases/latest)
+[![Codecov](https://img.shields.io/codecov/c/github/f69/cherdak)](https://app.codecov.io/gh/f69/cherdak)
 
 <img src="assets/icons/icon512.png" alt="drawing" width="150px"/>
 
