@@ -5,3 +5,8 @@ targets:
         options:
           field_rename: snake
           explicit_to_json: true
+
+      source_gen:combining_builder:
+        options:
+          preamble: |
+            // coverage:ignore-file
