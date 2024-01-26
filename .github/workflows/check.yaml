@@ -19,6 +19,9 @@ jobs:
           channel: 'stable'
           cache: true
 
+      - name: Get dependencies
+        run: flutter pub get
+
       - name: Run complex tests (with coverage)
         run: flutter test test/complex --coverage
 
