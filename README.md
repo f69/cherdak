@@ -1,5 +1,7 @@
 <div align="center">
 
+[![made-with-flutter](https://img.shields.io/badge/made_with-Flutter-blue.svg)](https://flutter.dev/)
+[![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/f69/cherdak/release.yaml)](https://github.com/f69/cherdak/actions/workflows/release.yaml)
 [![GitHub Release](https://img.shields.io/github/v/release/f69/cherdak)](https://github.com/f69/cherdak/releases/latest)
 [![Codecov](https://img.shields.io/codecov/c/github/f69/cherdak)](https://app.codecov.io/gh/f69/cherdak)
 
