@@ -1,0 +1,31 @@
+name: Check on pull request
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.16.x"
+          channel: 'stable'
+          cache: true
+
+      - name: Run complex tests (with coverage)
+        run: flutter test test/complex --coverage
+
+      - name: Run unit tests (with coverage)
+        run: flutter test test/unit --coverage
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v3
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

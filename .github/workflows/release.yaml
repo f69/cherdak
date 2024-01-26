@@ -1,0 +1,37 @@
+name: Release on v* tag
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  build:
+    name: Build and release artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.16.x"
+          channel: 'stable'
+          cache: true
+
+      - name: Run complex tests
+        run: flutter test test/complex
+
+      - name: Run unit tests
+        run: flutter test test/unit
+
+      - name: Build APK
+        run: flutter build apk
+
+      - name: Create a release with the APK
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/flutter-apk/app-release.apk"
+          omitBody: true
+
