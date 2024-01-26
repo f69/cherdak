@@ -4,7 +4,7 @@ import 'package:cherdak/components/menu/main_menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../mocks/mock_app.dart';
+import '../../../../mocks/mock_app.dart';
 
 void main() {
   group('Main menu', () {

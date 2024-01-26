@@ -4,8 +4,8 @@ import 'package:cherdak/service/common_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../../../mocks/mock_app.dart';
-import '../../../mocks/mock_data.dart';
+import '../../../../mocks/mock_app.dart';
+import '../../../../mocks/mock_data.dart';
 
 void main() {
   group('Country filter item', () {

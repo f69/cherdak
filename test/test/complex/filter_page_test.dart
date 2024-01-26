@@ -9,8 +9,8 @@ import 'package:cherdak/service/common_providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../mocks/mock_app.dart';
-import '../tools/utils.dart';
+import '../../mocks/mock_app.dart';
+import '../../tools/utils.dart';
 
 void main() {
   const itemTypes = {
