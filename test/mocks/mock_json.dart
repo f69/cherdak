@@ -7,3 +7,9 @@ const mockMetadataJson = {
   "to": 12,
   "total": 4058
 };
+
+const mockCategoryJson = {
+  "title": "Живопись",
+  "title_en": "Painting",
+  "slug": "painting"
+};

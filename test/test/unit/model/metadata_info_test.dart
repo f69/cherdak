@@ -1,9 +1,8 @@
-import 'dart:collection';
-
 import 'package:cherdak/model/metadata_info.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../mocks/mock_json.dart';
+import '../../../tools/utils.dart';
 
 void main() {
   group('MetadataInfo', () {
@@ -15,11 +14,7 @@ void main() {
     test('produces the same JSON', () {
       final data = MetadataInfo.fromJson(mockMetadataJson);
       final json = data.toJson();
-      final sortedSource = SplayTreeMap<String, dynamic>.from(
-          mockMetadataJson, (a, b) => a.compareTo(b));
-      final sortedResult =
-          SplayTreeMap<String, dynamic>.from(json, (a, b) => a.compareTo(b));
-      expect(sortedResult.toString(), equals(sortedSource.toString()));
+      expect(mapsEqual(json, mockMetadataJson), isTrue);
     });
 
     test('indicates if all pages are fetched', () {

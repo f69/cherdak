@@ -10,6 +10,7 @@ import 'mock_api.dart';
   ProviderContainer? container,
   HomeTab? homeTab,
   Widget? home,
+  List<Override> overrides = const [],
 }) {
   final mockClient = getMockApiClient();
 
@@ -18,6 +19,7 @@ import 'mock_api.dart';
       apiClientProvider.overrideWithValue(mockClient),
       if (homeTab != null)
         homeTabProvider.overrideWith((ref) => HomeTab.authors),
+      ...overrides,
     ],
   );
 
