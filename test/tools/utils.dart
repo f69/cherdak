@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:convert';
 
 import 'package:cherdak/components/menu/main_menu_item.dart';
@@ -118,4 +119,12 @@ extension WidgetTesterExtension on WidgetTester {
           waitCount: waitCount, seconds: seconds, duration: duration);
     });
   }
+}
+
+bool mapsEqual(Map<String, dynamic> map1, Map<String, dynamic> map2) {
+  final sorted1 =
+      SplayTreeMap<String, dynamic>.from(map1, (a, b) => a.compareTo(b));
+  final sorted2 =
+      SplayTreeMap<String, dynamic>.from(map2, (a, b) => a.compareTo(b));
+  return sorted1.toString() == sorted2.toString();
 }
