@@ -1,4 +1,14 @@
+<div align="center">
+
+![GitHub Release](https://img.shields.io/github/v/release/f69/cherdak)
+![Codecov](https://img.shields.io/codecov/c/github/f69/cherdak)
+
+<img src="assets/icons/icon512.png" alt="drawing" width="150px"/>
+
+
 # Cherdak Dalí
+
+<div align="left">
 
 Mobile application **prototype** for site **[Cherdak Dalí](https://cherdak.org)** built with 
 [Flutter](https://flutter.dev)
