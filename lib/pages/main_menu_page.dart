@@ -1,3 +1,4 @@
+import 'package:cherdak/components/misc/app_version_text.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:styled_widget/styled_widget.dart';
@@ -44,6 +45,7 @@ class MainMenuPage extends HookConsumerWidget {
             '|'.h3.padding(horizontal: 4),
             context.l10n.register.h3.pressable(onPressed: () {}),
           ].toRowMainCenter().padding(top: 6),
+          const AppVersionText().padding(top: 16),
         ].toColumn().padding(bottom: 32),
       ].toColumnCrossStart().safeArea(),
     );
