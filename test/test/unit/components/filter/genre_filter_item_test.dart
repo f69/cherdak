@@ -10,7 +10,10 @@ import '../../../../mocks/mock_data.dart';
 void main() {
   group('Genre filter item', () {
     testWidgets('selects specific genre and all genres', (tester) async {
-      final (:app, :container) = mockApp(home: const GenreFilterItem());
+      final (:app, :container) = mockApp(
+        overrides: [langProvider.overrideWith((ref) => 'ru')],
+        home: const GenreFilterItem(),
+      );
 
       await tester.pumpWidget(app);
       await tester.pumpAndSettle();

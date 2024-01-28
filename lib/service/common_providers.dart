@@ -3,7 +3,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 
 import '/model/request_params.dart';
 
-final langProvider = StateProvider<String>((ref) => 'ru');
+final langProvider = StateProvider<String>((ref) => '');
 
 enum HomeTab { main, gallery, services, authors, about }
 

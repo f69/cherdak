@@ -9,9 +9,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '/app/app_colors.dart';
 import '/app/app_const.dart';
 import '/app/app_theme.dart';
-import 'components/misc/custom_scroll_behavior.dart';
 import '/pages/home_page.dart';
 import '/service/common_providers.dart';
+import 'components/misc/custom_scroll_behavior.dart';
 
 class App extends HookConsumerWidget {
   const App({super.key, this.home});
