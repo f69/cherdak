@@ -10,7 +10,10 @@ import '../../../../mocks/mock_data.dart';
 void main() {
   group('Country filter item', () {
     testWidgets('selects specific country and all countries', (tester) async {
-      final (:app, :container) = mockApp(home: const CountryFilterItem());
+      final (:app, :container) = mockApp(
+        overrides: [langProvider.overrideWith((ref) => 'ru')],
+        home: const CountryFilterItem(),
+      );
 
       await tester.pumpWidget(app);
       await tester.pumpAndSettle();

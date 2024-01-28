@@ -19,7 +19,7 @@ class MainMenuPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final currentLang = ref.watch(langProvider);
+    final currentLang = context.lang;
 
     Widget langSwitch(String lang) => lang.h3
         .textColor(lang == currentLang ? AppColors.beige : null)
