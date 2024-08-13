@@ -27,7 +27,7 @@ extension ThemeExt on BuildContext {
 
   Color get primaryColor => theme.primaryColor;
 
-  Color get backgroundColor => theme.colorScheme.background;
+  Color get backgroundColor => theme.colorScheme.surface;
 
   Color get scaffoldBgColor => isCupertino
       ? cupertinoTheme.scaffoldBackgroundColor
