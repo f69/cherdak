@@ -6,6 +6,7 @@ import 'package:styled_widget/styled_widget.dart';
 import '/app/app_styles.dart';
 import '/components/cards/work_card.dart';
 import '/components/filter/filter_panel.dart';
+import '/components/filter/filter_text.dart';
 import '/components/misc/data_list.dart';
 import '/ext/context_ext.dart';
 import '/model/works_item.dart';
@@ -23,18 +24,18 @@ class GalleryPage extends HookConsumerWidget {
     return [
       DataList(
         dataProvider: worksProvider(filter),
-        filterProvider: worksFilterProvider,
         titleText: 'art gallery',
         descriptionText: context.l10n.artGalleryIntro,
         countTextFunction: context.l10n.worksCount,
         cardBuilder: (WorksItem data) =>
             WorkCard(info: data).height(cardSize.height),
+        filterTextBuilder: (_) =>
+            FilterText(filter: filter, defaultCategoryId: 1),
       ),
       FilterPanel(
         sorting: true,
         filter: filter,
-        onFilter: (value) =>
-            ref.read(worksFilterProvider.notifier).state = value,
+        filterProvider: worksFilterProvider,
         options: const {
           FilterOption.category,
           FilterOption.genre,

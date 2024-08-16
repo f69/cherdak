@@ -9,14 +9,7 @@ import '/ext/num_ext.dart';
 import '/ext/widget_ext.dart';
 import '/ext/widget_list_ext.dart';
 import '/model/paged_data_info.dart';
-import '/model/services_info.dart';
-import '/model/users_info.dart';
-import '/model/works_info.dart';
 import '/service/paged_data_notifier.dart';
-import '../cards/service_card.dart';
-import '../cards/user_card.dart';
-import '../cards/work_card.dart';
-import '../filter/filter_text.dart';
 import 'app_activity_indicator.dart';
 import 'app_error_widget.dart';
 
@@ -24,30 +17,32 @@ typedef CountTextFunction = String Function(Object count);
 
 typedef CardBuilder<T extends Object> = Widget Function(T data);
 
+typedef DataProviderCast = AutoDisposeFamilyAsyncNotifierProvider;
+
 class DataList<T extends PagedDataInfo, R extends Object>
     extends HookConsumerWidget {
   const DataList({
     super.key,
     required this.dataProvider,
-    required this.filterProvider,
     required this.titleText,
     required this.descriptionText,
     required this.countTextFunction,
     required this.cardBuilder,
+    required this.filterTextBuilder,
   });
 
   final ProviderListenable<AsyncValue<T>> dataProvider;
-  final ProviderListenable filterProvider;
   final String titleText;
   final String descriptionText;
   final CountTextFunction countTextFunction;
   final CardBuilder<R> cardBuilder;
+  final WidgetBuilder filterTextBuilder;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final filter = ref.watch(filterProvider);
     final AsyncValue<T> dataAsync = ref.watch(dataProvider);
-    final cardSize = AppSizes.workCardSize(context);
+
+    void refreshData() => ref.invalidate(dataProvider as DataProviderCast);
 
     Widget buildCaption() {
       return [
@@ -64,37 +59,24 @@ class DataList<T extends PagedDataInfo, R extends Object>
       return [
         '${context.l10n.found} ${countTextFunction(itemCount)}'.text3Bold,
         const Divider().padding(top: 12),
-        FilterText(filter: filter, defaultCategoryId: T == WorksInfo ? 1 : null)
-            .padding(top: 16),
+        filterTextBuilder(context).padding(top: 16),
       ].toColumnCrossStart().padding(horizontal: AppSizes.p20, bottom: 32);
     }
 
     NullableIndexedWidgetBuilder getItemBuilder(T value) =>
         (BuildContext context, int index) {
           Future getNextPage() async {
-            final notifier =
-                (dataProvider as AutoDisposeFamilyAsyncNotifierProvider)
-                    .notifier;
+            final notifier = (dataProvider as DataProviderCast).notifier;
             (ref.read(notifier) as PagedDataNotifier).getNextPage();
-          }
-
-          Widget buildCard() {
-            return switch (T) {
-              const (UsersInfo) => UserCard(user: value.data[index]),
-              const (ServicesInfo) => ServiceCard(info: value.data[index]),
-              const (WorksInfo) =>
-                WorkCard(info: value.data[index]).height(cardSize.height),
-              _ => const SizedBox.shrink(),
-            };
           }
 
           if (index == value.data.length) {
             Future(getNextPage);
             return const AppActivityIndicator().aspectRatio(aspectRatio: 1);
+          } else {
+            return cardBuilder(value.data[index])
+                .padding(bottom: 32, horizontal: AppSizes.p20);
           }
-          // return buildCard().padding(bottom: 32, horizontal: AppSizes.p20);
-          return cardBuilder(value.data[index])
-              .padding(bottom: 32, horizontal: AppSizes.p20);
         };
 
     SliverList buildList(T value) => SliverList(
@@ -104,11 +86,9 @@ class DataList<T extends PagedDataInfo, R extends Object>
           ),
         );
 
-    Widget buildErrorWidget(Object? error) => AppErrorWidget(
-          error: error,
-          onRetry: () => ref.invalidate(
-              dataProvider as AutoDisposeFamilyAsyncNotifierProvider),
-        ).toSliverFillRemaining();
+    Widget buildErrorWidget(Object? error) =>
+        AppErrorWidget(error: error, onRetry: refreshData)
+            .toSliverFillRemaining();
 
     return CustomScrollView(
       slivers: [

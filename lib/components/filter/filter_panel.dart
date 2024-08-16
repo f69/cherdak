@@ -19,12 +19,14 @@ class FilterPanel extends HookConsumerWidget {
     this.filter,
     this.onFilter,
     this.options = const {},
+    this.filterProvider,
   });
 
   final bool sorting;
   final RequestParams? filter;
   final ValueChanged<RequestParams>? onFilter;
   final Set<FilterOption> options;
+  final StateProvider? filterProvider;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -44,6 +46,9 @@ class FilterPanel extends HookConsumerWidget {
 
       if (newFilter != null) {
         onFilter?.call(newFilter);
+        if (filterProvider != null) {
+          ref.read(filterProvider!.notifier).state = newFilter;
+        }
       }
     }
 

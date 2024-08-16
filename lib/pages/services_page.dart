@@ -5,6 +5,7 @@ import 'package:styled_widget/styled_widget.dart';
 
 import '/components/cards/service_card.dart';
 import '/components/filter/filter_panel.dart';
+import '/components/filter/filter_text.dart';
 import '/components/misc/data_list.dart';
 import '/ext/context_ext.dart';
 import '/model/service_info.dart';
@@ -21,16 +22,15 @@ class ServicesPage extends HookConsumerWidget {
     return [
       DataList(
         dataProvider: servicesProvider(filter),
-        filterProvider: servicesFilterProvider,
         titleText: 'art services',
         descriptionText: context.l10n.servicePageIntro,
         countTextFunction: context.l10n.servicesCount,
         cardBuilder: (ServiceInfo data) => ServiceCard(info: data),
+        filterTextBuilder: (_) => FilterText(filter: filter),
       ),
       FilterPanel(
         filter: filter,
-        onFilter: (value) =>
-            ref.read(servicesFilterProvider.notifier).state = value,
+        filterProvider: servicesFilterProvider,
         options: const {FilterOption.country, FilterOption.serviceType},
       ).alignment(Alignment.bottomCenter).safeArea(),
     ].toStack();
