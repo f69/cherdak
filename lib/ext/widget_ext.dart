@@ -110,3 +110,17 @@ extension StyledExt on Widget {
         child: this,
       );
 }
+
+extension SliverExt on Widget {
+  Widget toSliver() => SliverToBoxAdapter(child: this);
+
+  Widget toSliverFillRemaining({
+    bool hasScrollBody = true,
+    bool fillOverscroll = false,
+  }) =>
+      SliverFillRemaining(
+        hasScrollBody: hasScrollBody,
+        fillOverscroll: fillOverscroll,
+        child: this,
+      );
+}
