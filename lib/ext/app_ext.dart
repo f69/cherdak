@@ -40,7 +40,7 @@ extension AppWidgetExt on Widget {
         pressedOpacity: pressedOpacity,
         ripple: ripple,
         pressedForegroundColor: pressedForegroundColor,
-        pressedBackgroundColor: AppColors.inactiveGrey.withOpacity(0.5),
+        pressedBackgroundColor: AppColors.inactiveGrey.withValues(alpha: 0.5),
         isPressed: isPressed,
         child: this,
       );

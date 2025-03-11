@@ -26,7 +26,7 @@ class PromoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return [
       Image.asset('assets/images/banner.jpg', fit: BoxFit.cover),
-      Styled.widget().backgroundColor(Colors.black.withOpacity(0.8)),
+      Styled.widget().backgroundColor(Colors.black.withValues(alpha: 0.8)),
       [
         number.text3Bold.textColor(AppColors.textLightGrey),
         caption.h3.padding(top: 12, bottom: 10).expanded(),

@@ -38,7 +38,7 @@ extension ThemeExt on BuildContext {
   Color get disabledColor => theme.disabledColor;
 
   Color disabledPaleColor([double divider = 3.0]) =>
-      theme.disabledColor.withOpacity(theme.disabledColor.opacity / divider);
+      theme.disabledColor.withValues(alpha: theme.disabledColor.a / divider);
 
   Color get dividerColor => theme.dividerColor;
 
