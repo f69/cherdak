@@ -20,7 +20,7 @@ class HomeFooter extends StatelessWidget {
           Image.asset('assets/images/banner2.jpg', fit: BoxFit.cover)
               .padding(top: 16),
           Styled.widget()
-              .backgroundColor(Colors.black.withOpacity(0.4))
+              .backgroundColor(Colors.black.withValues(alpha: 0.4))
               .positioned(top: 0, left: 0, right: 0, bottom: 0),
           context.l10n.art.h1Outlined.alignment(Alignment.topRight),
         ].toStack().padding(bottom: 16),
